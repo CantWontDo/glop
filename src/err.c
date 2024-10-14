@@ -4,7 +4,7 @@
 
 #include "err.h"
 
-bool restart_gl_log()
+bool restart_log()
 {
     FILE* file = fopen(GL_LOG_FILEPATH, "w");
     if (!file)
@@ -20,7 +20,7 @@ bool restart_gl_log()
     return true;
 }
 
-bool gl_log_err(const char *msg, ...)
+bool log_err(const char *msg, ...)
 {
     va_list argptr;
     FILE *file = fopen(GL_LOG_FILEPATH, "a");
@@ -39,7 +39,7 @@ bool gl_log_err(const char *msg, ...)
     return true;
 }
 
-bool gl_log(const char *msg, ...)
+bool log(const char *msg, ...)
 {
     va_list argptr;
     FILE *file = fopen(GL_LOG_FILEPATH, "a");
@@ -57,5 +57,5 @@ bool gl_log(const char *msg, ...)
 
 void glfw_error_callback(int error, const char *description)
 {
-    gl_log_err("GLFW ERROR %d: %s\n", error, description);
+    log_err("GLFW ERROR %d: %s\n", error, description);
 }

@@ -1,5 +1,5 @@
 //
-// Created by iamro on 10/4/2024.
+// Created by Rahul Pardeshi on 10/4/2024.
 //
 
 #ifndef LOG_H
@@ -10,9 +10,9 @@
 #include <stdbool.h>
 #define GL_LOG_FILEPATH "gl.log"
 
-bool restart_gl_log();
-bool gl_log_err(const char *msg, ...);
-bool gl_log(const char *msg, ...);
+bool restart_log();
+bool log_err(const char *msg, ...);
+bool log(const char *msg, ...);
 
 void glfw_error_callback(int error, const char *description);
 #endif //LOG_H

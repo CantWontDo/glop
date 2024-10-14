@@ -14,6 +14,10 @@ add_executable(glop src/main.c
         src/lib/glad/khrplatform.h
         src/err.c
         src/err.h
-        src/typedefs.h)
+        src/typedefs.h
+        src/glop.c
+        src/glop.h
+        src/arr.c
+        src/arr.h)
 
 target_link_libraries(glop PRIVATE glfw)

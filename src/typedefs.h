@@ -1,5 +1,5 @@
 //
-// Created by iamro on 10/5/2024.
+// Created by Rahul Pardeshi on 10/5/2024.
 //
 
 #ifndef TYPEDEFS_H
@@ -8,9 +8,22 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "err.h"
 
 typedef uint8_t u8;
+typedef uint16_t u16;
 typedef uint32_t u32;
+typedef uint64_t u64;
+
+typedef int8_t i8;
+typedef int16_t i16;
+typedef int32_t i32;
+typedef int64_t i64;
+
+typedef float_t f32;
+typedef double_t f64;
 
 typedef union v2
 {
@@ -196,6 +209,163 @@ static void v4_print(v4 a)
     printf("[ %4.3f %4.3f %4.3f %4.3f]\n", a.x, a.y, a.z, a.w);
 }
 
+typedef union m2
+{
+    struct
+    {
+        float
+        _11, _12,
+        _21, _22;
+    };
+    float m[4];
+    float m_g[2][2];
+
+    v2 r[2];
+} m2 ;
+
+static const m2 m2_ident =
+    {1, 0,
+     0, 1
+    };
+
+static void m2_print(m2 m)
+{
+    v2_print(m.r[0]);
+    v2_print(m.r[1]);
+}
+
+inline static m2 m2_mul_s(m2 m, float scalar)
+{
+    for (int i = 0; i < 4; i++)
+        m.m[i] *= scalar;
+    return m;
+}
+
+inline static m2 m2_div_s(m2 m, float scalar)
+{
+    for (int i = 0; i < 4; i++)
+        m.m[i] /= scalar;
+    return m;
+}
+
+inline static m2 m2_transpose(m2 m)
+{
+    return (m2)
+    {
+    m._11, m._21,
+    m._12, m._22,
+    };
+}
+
+inline static m2 m2_mul_m(m2 m, m2 m_2)
+{
+    m2 out;
+    m_2 = m2_transpose(m_2);
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+            out.m_g[i][j] = v2_dot(m.r[i], m_2.r[j]);
+    }
+    return out;
+}
+
+inline static float m2_det(m2 m)
+{
+    return m._11*m._22 - m._12*m._21;
+}
+
+inline static v2 v2_mul_m2(m2 m, v2 v)
+{
+    v2 out;
+    out.x = v2_dot(v, m.r[0]);
+    out.y = v2_dot(v, m.r[1]);
+
+    return out;
+}
+
+typedef union m3
+{
+    struct
+    {
+        float
+        _11, _12, _13,
+        _21, _22, _23,
+        _31, _32, _33;
+    };
+    float m[9];
+    float m_g[3][3];
+
+    v3 r[3];
+} m3;
+
+static const m3 m3_ident =
+    {1, 0, 0,
+     0, 1, 0,
+    0, 0, 1
+    };
+
+static void m3_print(m3 m)
+{
+    v3_print(m.r[0]);
+    v3_print(m.r[1]);
+    v3_print(m.r[2]);
+}
+
+inline static m3 m3_mul_s(m3 m, float scalar)
+{
+    for (int i = 0; i < 9; i++)
+        m.m[i] *= scalar;
+    return m;
+}
+
+inline static m3 m3_div_s(m3 m, float scalar)
+{
+    for (int i = 0; i < 4; i++)
+        m.m[i] /= scalar;
+    return m;
+}
+
+inline static m3 m3_transpose(m3 m)
+{
+    return (m3)
+    {
+    m._11, m._21, m._31,
+    m._12, m._22, m._32,
+        m._13, m._23, m._33
+    };
+}
+
+inline static m3 m3_mul_m(m3 m, m3 m2)
+{
+    m3 out;
+    m2 = m3_transpose(m2);
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+            out.m_g[i][j] = v3_dot(m.r[i], m2.r[j]);
+    }
+    return out;
+}
+
+inline static float m3_det(m3 m)
+{
+    return m._11 * (m._22*m._33 - m._23*m._32) -
+           m._12 * (m._21*m._33 - m._23*m._31) +
+           m._13 * (m._21*m._32 - m._22*m._31);
+}
+
+inline static v3 v3_mul_m3(m3 m, v3 v)
+{
+    v3 out;
+    out.x = v3_dot(v, m.r[0]);
+    out.y = v3_dot(v, m.r[1]);
+    out.z = v3_dot(v, m.r[2]);
+
+    return out;
+}
+
 typedef union m4
 {
     struct
@@ -267,7 +437,7 @@ inline static m4 m4_mul_m(m4 m, m4 m2)
 
 inline static m4 m4_scale(float x, float y, float z)
 {
-    m4 out;
+    m4 out = m4_ident;
     out.r[0].x = x;
     out.r[1].y = y;
     out.r[2].z = z;
@@ -284,6 +454,17 @@ inline static m4 m4_scale_v(v3 a)
     return m4_scale(a.x, a.y, a.z);
 }
 
+inline static m4 m4_transform(float x, float y, float z)
+{
+    m4 out = m4_ident;
+    out.r[3] = (v4){x, y, z, 1};
+    return out;
+}
+
+inline static m4 m4_transform_v(v3 v)
+{
+    return m4_transform(v.x, v.y, v.z);
+}
 inline static float m4_det(m4 m)
 {
     return m._11 *
@@ -310,19 +491,109 @@ inline static float m4_det(m4 m)
 
 inline static m4 m4_adj(m4 m)
 {
+    m3 cofac_11 = {m._22, m._23, m._24,
+                    m._32, m._33, m._34,
+                    m._42, m._43, m._44};
+    m3 cofac_12 = {m._21, m._23, m._24,
+                     m._31, m._33, m._34,
+                        m._41, m._43, m._44
+                    };
+    m3 cofac_13 = {m._21, m._22, m._24,
+                        m._31, m._32, m._34,
+                            m._41, m._42, m._44};
+    m3 cofac_14 = {m._21, m._22, m._23,
+                        m._31, m._32, m._33,
+                            m._41, m._42, m._43};
 
+    m3 cofac_21 = {m._12, m._13, m._14,
+                    m._32, m._33, m._34,
+                    m._42, m._43, m._44};
+    m3 cofac_22 = {m._11, m._13, m._14,
+                     m._31, m._33, m._34,
+                        m._41, m._43, m._44
+                    };
+    m3 cofac_23 = {m._11, m._12, m._14,
+                        m._31, m._32, m._34,
+                            m._41, m._42, m._44};
+    m3 cofac_24 = {m._11, m._12, m._13,
+                        m._31, m._32, m._33,
+                            m._41, m._42, m._43};
+
+    m3 cofac_31 = {m._12, m._13, m._14,
+                    m._22, m._23, m._24,
+                    m._42, m._43, m._44};
+    m3 cofac_32 = {m._11, m._13, m._14,
+                     m._21, m._23, m._24,
+                        m._41, m._43, m._44
+                    };
+    m3 cofac_33 = {m._11, m._12, m._14,
+                        m._21, m._22, m._24,
+                            m._41, m._42, m._44};
+    m3 cofac_34 = {m._11, m._12, m._13,
+                        m._21, m._22, m._23,
+                            m._41, m._42, m._43};
+
+    m3 cofac_41 = {m._12, m._13, m._14,
+                    m._22, m._23, m._24,
+                    m._32, m._33, m._34};
+    m3 cofac_42 = {m._11, m._13, m._14,
+                     m._21, m._23, m._24,
+                        m._31, m._33, m._34
+                    };
+    m3 cofac_43 = {m._11, m._12, m._14,
+                        m._21, m._22, m._24,
+                            m._31, m._32, m._34};
+    m3 cofac_44 = {m._11, m._12, m._13,
+                        m._21, m._22, m._23,
+                            m._31, m._32, m._33};
+
+    m4 adj_bt =
+        {
+    m3_det(cofac_11), -m3_det(cofac_12), m3_det(cofac_13), -m3_det(cofac_14),
+    -m3_det(cofac_21), m3_det(cofac_22), -m3_det(cofac_23), m3_det(cofac_24),
+    m3_det(cofac_31), -m3_det(cofac_32), m3_det(cofac_33), -m3_det(cofac_34),
+    -m3_det(cofac_41), m3_det(cofac_42), -m3_det(cofac_43), m3_det(cofac_44)
+        };
+
+    return m4_transpose(adj_bt);
 }
 
+inline static m4 m4_inv(m4 m)
+{
+    float det = m4_det(m);
+    if (det == 0)
+        log_err("Matrix cannot be inverted!");
+    return m4_div_s(m4_adj(m), det);
+}
 
 inline static v4 v4_mul_m4(m4 m, v4 v)
 {
     v4 out;
-
     out.x = v4_dot(v, m.r[0]);
     out.y = v4_dot(v, m.r[1]);
     out.z = v4_dot(v, m.r[2]);
     out.w = v4_dot(v, m.r[3]);
 
     return out;
+}
+
+static char *read_txt_file(char *file_name)
+{
+    FILE *file = fopen(file_name, "r");
+    if (!file)
+    {
+        log_err("Couldn't open file at %s\n", file_name);
+        return 0;
+    }
+    char *buffer = 0;
+    fseek(file, 0L, SEEK_END);
+    const int buffer_size = ftell(file);
+    rewind(file);
+
+    buffer = calloc(buffer_size, sizeof(char));
+    int read_size = fread(buffer, sizeof(char), buffer_size, file);
+    buffer = (char*)realloc(buffer, read_size + 1);
+    fclose(file);
+    return buffer;
 }
 #endif //TYPEDEFS_H

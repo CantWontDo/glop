@@ -7,53 +7,13 @@
 
 #include "err.h"
 #include "typedefs.h"
+#include "glop.h"
+#include "arr.h"
 
-char *read_text_file(char *file_name)
-{
-    FILE *file = fopen(file_name, "r");
-    if (!file)
-        gl_log_err("Couldn't open file at %s\n", file_name);
-    char *buffer = 0;
-    fseek(file, 0L, SEEK_END);
-    const int buffer_size = ftell(file);
-    rewind(file);
-
-    buffer = calloc(buffer_size, sizeof(char));
-    int read_size = fread(buffer, sizeof(char), buffer_size, file);
-    buffer = (char*)realloc(buffer, read_size + 1);
-    fclose(file);
-    return buffer;
-}
-
-void shdr_check(GLuint shdr_id, char *path)
-{
-    GLint success = -1;
-    glGetShaderiv(shdr_id, GL_COMPILE_STATUS, &success);
-
-    if (!success)
-    {
-        char info_log[2048];
-        glGetShaderInfoLog(shdr_id, sizeof(info_log), 0, info_log);
-        gl_log_err("shader log:\n%s\n", info_log);
-    }
-}
-
-void prog_check(GLuint prog_id)
-{
-    GLint success = -1;
-    glGetProgramiv(prog_id, GL_COMPILE_STATUS, &success);
-
-    if (!success)
-    {
-        char info_log[2048];
-        glGetProgramInfoLog(prog_id, sizeof(info_log), 0, info_log);
-        gl_log_err("program log:\n%s\n", info_log);
-    }
-}
 int main(void)
 {
-    assert(restart_gl_log());
-    gl_log("starting GLFW %s\n", glfwGetVersionString());
+    assert(restart_log());
+    log("starting GLFW %s\n", glfwGetVersionString());
 
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
@@ -74,7 +34,7 @@ int main(void)
     GLFWwindow* window = glfwCreateWindow(vmode->width, vmode->height, "glop", 0, 0);
     if (!window)
     {
-        gl_log_err("Couldn't create window!");
+        log_err("Couldn't create window!");
         glfwTerminate();
         return 1;
     }
@@ -83,7 +43,7 @@ int main(void)
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        gl_log_err("Couldn't load GLAD!");
+        log_err("Couldn't load GLAD!");
         glfwTerminate();
         return -1;
     }
@@ -105,68 +65,40 @@ int main(void)
         0.0f, 0.0f, 1.0f,
     };
 
-    GLuint vbo = 0;
-    glCreateBuffers(1, &vbo);
-    glNamedBufferStorage(vbo, sizeof(points), points, GL_DYNAMIC_STORAGE_BIT);
+    buf vbo = vbo_new();
+    buf_data(&vbo, sizeof(points), points, GL_DYNAMIC_STORAGE_BIT);
 
-    GLuint vao = 0;
-    glCreateVertexArrays(1, &vao);
+    vao v = vao_new(&vbo, 0, 2, 3, GL_FLOAT, 3, GL_FLOAT);
 
-    glVertexArrayVertexBuffer(vao, 0, vbo, 0, sizeof(GLfloat) * 6);
-
-    glEnableVertexArrayAttrib(vao, 0);
-    glEnableVertexArrayAttrib(vao, 1);
-
-    glVertexArrayAttribFormat(vao, 0, 3, GL_FLOAT, GL_FALSE, 0);
-    glVertexArrayAttribFormat(vao, 1, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 3);
-
-    glVertexArrayAttribBinding(vao, 0, 0);
-    glVertexArrayAttribBinding(vao, 1, 0);
-
-    char *v_shdr_src = read_text_file("res/test.vsh");
-
-    char *f_shdr_src = read_text_file("res/test.fsh");
-
-    GLuint v_shdr = glCreateShader(GL_VERTEX_SHADER);
-    GLuint f_shdr = glCreateShader(GL_FRAGMENT_SHADER);
-
-    glShaderSource(v_shdr, 1, &v_shdr_src, 0);
-    glCompileShader(v_shdr);
-
-    glShaderSource(f_shdr, 1, &f_shdr_src, 0);
-    glCompileShader(f_shdr);
-
-    shdr_check(v_shdr, "res/test.vsh");
-    shdr_check(f_shdr, "res/test.fsh");
-    free(v_shdr_src);
-    free(f_shdr_src);
-
-    GLuint shdr_program = glCreateProgram();
-    glAttachShader(shdr_program, v_shdr);
-    glAttachShader(shdr_program, f_shdr);
-
-    glDeleteShader(v_shdr);
-    glDeleteShader(f_shdr);
-    glLinkProgram(shdr_program);
-    prog_check(shdr_program);
+    shdr s = shdr_new(2, GL_VERTEX_SHADER, "res/test.vsh", GL_FRAGMENT_SHADER, "res/test.fsh");
 
     double prev_sec = 0;
     double current_sec = 0;
     int frame_count = 0;
 
-    m4 test = {1, 2, 12, 1,
-                0, 16, 4, 2,
-                    2, 0, 4, 2,
-                        1, 2, 13, 1};
-    float test_det = m4_det(test);
-    printf("%f\n", test_det);
+    f32 *test = arr_new(float, 1);
+    arr_add_many(test, 18, points);
+    arr_header *head = arr_get_header(test);
+    printf("%lu\n", head->count);
+
+    printf("%lu\n", head->cap);
+
     while (!glfwWindowShouldClose(window))
     {
+        float loop = sinf(glfwGetTime());
+        loop *= loop * loop;
+
+        m4 scale = m4_scale(0.25 * fabsf(loop) + 0.25, 0.5 * fabsf(loop) + 0.5, 1);
+        m4 trans = m4_transform(loop * 0.5, 0, 0);
+
+        m4 concat = m4_mul_m(scale, trans);
         glClearColor(0.6f, 0.6f, 0.8f, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glUseProgram(shdr_program);
+        shdr_bind(&s);
+        int loc = glGetUniformLocation(s.id, "world");
+        glUniformMatrix4fv(loc, 1, GL_TRUE, &concat.m[0]);
 
-        glBindVertexArray(vao);
+        vao_bind(&v);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwPollEvents();
