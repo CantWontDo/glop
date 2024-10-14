@@ -13,7 +13,7 @@
 int main(void)
 {
     assert(restart_log());
-    log("starting GLFW %s\n", glfwGetVersionString());
+    log_info("starting GLFW %s\n", glfwGetVersionString());
 
     glfwSetErrorCallback(glfw_error_callback);
     if (!glfwInit())
@@ -31,6 +31,7 @@ int main(void)
 
     GLFWmonitor *monitor = glfwGetPrimaryMonitor();
     const GLFWvidmode *vmode = glfwGetVideoMode(monitor);
+
     GLFWwindow* window = glfwCreateWindow(vmode->width, vmode->height, "glop", 0, 0);
     if (!window)
     {
@@ -75,13 +76,6 @@ int main(void)
     double prev_sec = 0;
     double current_sec = 0;
     int frame_count = 0;
-
-    f32 *test = arr_new(float, 1);
-    arr_add_many(test, 18, points);
-    arr_header *head = arr_get_header(test);
-    printf("%lu\n", head->count);
-
-    printf("%lu\n", head->cap);
 
     while (!glfwWindowShouldClose(window))
     {

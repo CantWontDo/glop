@@ -39,7 +39,7 @@ bool log_err(const char *msg, ...)
     return true;
 }
 
-bool log(const char *msg, ...)
+bool log_info(const char *msg, ...)
 {
     va_list argptr;
     FILE *file = fopen(GL_LOG_FILEPATH, "a");

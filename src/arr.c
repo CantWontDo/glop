@@ -10,7 +10,7 @@ arr_header *arr_get_header(void *arr)
     return (arr_header *)(arr_ - sizeof(arr_header));
 }
 
-u8 *arr_header_new(u32 cap, u32 elem_size)
+u8 *arr_header_new(const u32 cap, const u32 elem_size)
 {
     u32 cap_ = 1;
     while (cap_ < cap * elem_size)
@@ -24,10 +24,9 @@ u8 *arr_header_new(u32 cap, u32 elem_size)
     return (u8 *)arr + sizeof(arr_header);
 }
 
-void arr_add(void *arr, const void *elem)
+void arr_add(void **arr, const void *elem)
 {
-    u8 *arr_ = arr;
-    arr_header *head = arr_get_header(arr_);
+    arr_header *head = arr_get_header(*arr);
 
     if (head->count == head->cap)
     {
@@ -39,17 +38,16 @@ void arr_add(void *arr, const void *elem)
             log_err("couldn't grow array!");
 
         head = (arr_header *) new_arr;
-        arr_ = new_arr + sizeof(arr_header);
+        *arr = new_arr + sizeof(arr_header);
     }
 
-    memcpy(arr_ + head->count * head->elem_size, elem, head->elem_size);
+    memcpy(*arr + head->count * head->elem_size, elem, head->elem_size);
     head->count++;
 }
 
-void arr_add_many(void *arr, u32 n_elems, const void *elems)
+void arr_add_many(void **dst, const void *src, const u32 n_elems)
 {
-    u8 *arr_ = arr;
-    arr_header *head = arr_get_header(arr_);
+    arr_header *head = arr_get_header(*dst);
 
     u32 new_count = head->count + n_elems;
 
@@ -65,11 +63,19 @@ void arr_add_many(void *arr, u32 n_elems, const void *elems)
             log_err("couldn't grow array!");
 
         head = (arr_header *) new_arr;
-        arr_ = new_arr + sizeof(arr_header);
+        *dst = new_arr + sizeof(arr_header);
     }
 
-    memcpy(arr_ + head->count * head->elem_size, elems, n_elems * head->elem_size);
+    memcpy(*dst + head->count * head->elem_size, src, n_elems * head->elem_size);
     head->count = new_count;
+}
+
+char *arr_to_str(void *arr)
+{
+    char *str = malloc(arr_count(arr) + 1);
+    memcpy(str, arr, arr_count(arr));
+    str[arr_count(arr)] = '\0';
+    return str;
 }
 
 void arr_del(void *arr)

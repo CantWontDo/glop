@@ -592,8 +592,9 @@ static char *read_txt_file(char *file_name)
 
     buffer = calloc(buffer_size, sizeof(char));
     int read_size = fread(buffer, sizeof(char), buffer_size, file);
-    buffer = (char*)realloc(buffer, read_size + 1);
+    buffer = (char *)realloc(buffer, read_size + 1);
     fclose(file);
     return buffer;
 }
+
 #endif //TYPEDEFS_H

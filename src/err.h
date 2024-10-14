@@ -12,7 +12,7 @@
 
 bool restart_log();
 bool log_err(const char *msg, ...);
-bool log(const char *msg, ...);
+bool log_info(const char *msg, ...);
 
 void glfw_error_callback(int error, const char *description);
 #endif //LOG_H
