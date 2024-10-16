@@ -8,7 +8,7 @@
 #include <time.h>
 #include <stdarg.h>
 #include <stdbool.h>
-#define GL_LOG_FILEPATH "gl.log"
+#define GL_LOG_FILEPATH "glop.log"
 
 bool restart_log();
 bool log_err(const char *msg, ...);

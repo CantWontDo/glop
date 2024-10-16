@@ -585,6 +585,7 @@ static char *read_txt_file(char *file_name)
         log_err("Couldn't open file at %s\n", file_name);
         return 0;
     }
+
     char *buffer = 0;
     fseek(file, 0L, SEEK_END);
     const int buffer_size = ftell(file);

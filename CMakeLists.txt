@@ -19,6 +19,7 @@ add_executable(glop src/main.c
         src/glop.h
         src/arr.c
         src/arr.h
+        src/hash.h
         src/map.c
         src/map.h
 )

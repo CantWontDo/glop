@@ -9,6 +9,8 @@
 #include "typedefs.h"
 #include "glop.h"
 #include "arr.h"
+#include "hash.h"
+#include "map.h"
 
 int main(void)
 {
@@ -77,15 +79,49 @@ int main(void)
     double current_sec = 0;
     int frame_count = 0;
 
+    float *test = arr_new_size(float, 16);
+    map m = map_new(16);
+
+    arr_add(test, &points[0]);
+    map_add(&m, "point1");
+
+    arr_add(test, &points[1]);
+    map_add(&m, "point2");
+
+    arr_add(test, &points[2]);
+    map_add(&m, "point3");
+
+    arr_add(test, &points[3]);
+    map_add(&m, "point4");
+
+    arr_add(test, &points[4]);
+    map_add(&m, "point5");
+
+    arr_add(test, &points[5]);
+    map_add(&m, "point6");
+
+    u32 idx1 = map_lookup(&m, "point1");
+    u32 idx2 = map_lookup(&m, "point2");
+    u32 idx3 = map_lookup(&m, "point3");
+    u32 idx4 = map_lookup(&m, "point4");
+    u32 idx5 = map_lookup(&m, "point5");
+    u32 idx6 = map_lookup(&m, "point6");
+
+    printf("%f %f %f %f %f %f\n", test[idx1], test[idx2], test[idx3], test[idx4], test[idx5], test[idx6]);
+
     while (!glfwWindowShouldClose(window))
     {
         float loop = sinf(glfwGetTime());
         loop *= loop * loop;
 
+        // weird pop out of edge effect
+        // loop = 1 / (loop * loop * loop);
+
         m4 scale = m4_scale(0.25 * fabsf(loop) + 0.25, 0.5 * fabsf(loop) + 0.5, 1);
         m4 trans = m4_transform(loop * 0.5, 0, 0);
 
         m4 concat = m4_mul_m(scale, trans);
+
         glClearColor(0.6f, 0.6f, 0.8f, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         shdr_bind(&s);
