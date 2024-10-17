@@ -20,6 +20,7 @@ typedef struct arr_header
 arr_header *arr_get_header(void *arr);
 u8 *arr_header_new(const u32 cap, const size_t elem_size);
 
+void arr_grow(void **arr, u32 new_cap);
 void arr_add(void *arr, const void *elem);
 void arr_add_many(void *dst_, const void *src, const u32 n_elems);
 

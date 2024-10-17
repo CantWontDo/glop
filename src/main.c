@@ -80,7 +80,7 @@ int main(void)
     int frame_count = 0;
 
     float *test = arr_new_size(float, 16);
-    map m = map_new(16);
+    map m = map_new(2);
 
     arr_add(test, &points[0]);
     map_add(&m, "point1");
