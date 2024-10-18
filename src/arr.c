@@ -26,57 +26,52 @@ u8 *arr_header_new(const u32 cap, const size_t elem_size)
     return arr_;
 }
 
-void arr_add(void *arr_, const void *elem)
+void arr_grow(void **arr)
 {
-    u8 **arr = &arr_;
+    arr_header *head = arr_get_header(*arr);
+    u32 size = sizeof(arr_header) + head->cap * head->elem_size;
+
+    u8 *new_arr = realloc((u8*) head, size);
+    if (!new_arr)
+        log_err("couldn't grow array!");
+
+    head = (arr_header*) new_arr;
+    *arr = new_arr + sizeof(arr_header);
+}
+
+void arr_append(void **arr_, const void *elem)
+{
+    u8 **arr = arr_;
     arr_header *head = arr_get_header(*arr);
 
     if (head->count == head->cap)
     {
-        arr_grow(arr, 0);
+        head->cap *= 2;
+        arr_grow(arr_);
     }
 
     memcpy(*arr + head->count * head->elem_size, elem, head->elem_size);
+    memset(*arr + (head->count + 1) * head->elem_size, 0, (head->cap - head->count - 1) * head->elem_size);
     head->count++;
 }
 
-void arr_grow(void **arr, u32 new_cap)
+void arr_append_many(void **dst, const void *src, const u32 n_elems)
 {
-    arr_header *head = arr_get_header(*arr);
-    if (new_cap == 0)
-        head->cap *= 2;
-    else
-        head->cap = new_cap;
-    u32 size = sizeof(arr_header) + head->cap * head->elem_size;
-    u8 *new_arr = realloc((u8 *) head, size);
-
-    if (!new_arr)
-        log_err("couldn't grow array!");
-
-    head = (arr_header *) new_arr;
-    *arr = new_arr + sizeof(arr_header);
-}
-
-void arr_add_many(void *dst_, const void *src, const u32 n_elems)
-{
-    u8 **dst = &dst_;
     arr_header *head = arr_get_header(*dst);
 
     u32 new_count = head->count + n_elems;
 
     if (new_count >= head->cap)
     {
-        u32 cur_cap = head->cap;
-        while(cur_cap <= new_count)
-            cur_cap *= 2;
-
-        arr_grow(dst, cur_cap);
+        while (head->cap <= new_count)
+            head->cap *= 2;
+        arr_grow(dst);
     }
 
     memcpy(*dst + head->count * head->elem_size, src, n_elems * head->elem_size);
+    memset(*dst + new_count * head->elem_size, 0, (head->cap - new_count) * head->elem_size);
     head->count = new_count;
 }
-
 
 bool arr_has(void *arr, const void *elem, size_t elem_size)
 {
@@ -108,5 +103,5 @@ void arr_del(void *arr)
 void *arr_end(void *arr)
 {
     arr_header* head = arr_get_header(arr);
-    return head + head->count * head->elem_size;
+    return (u8*)head + head->count * head->elem_size;
 }

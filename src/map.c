@@ -29,7 +29,7 @@ void map_add(map *m, const void *k)
         map_rehash(m);
 
     u32 hashed = hash(k);
-    arr_add(m->keys, &hashed);
+    arr_append(&m->keys, &hashed);
 
     u32 idx = hashed % m->n_buckets;
 
@@ -62,12 +62,10 @@ u32 map_lookup(map *m, const void *k)
 void map_rehash(map *m)
 {
     u32 new_n_buckets = m->n_buckets * 2;
-
-
-    m->keys = realloc((u8 *)m->keys, new_n_buckets * sizeof(u32));
-
     i32 *new_vals = arr_new_size(i32, new_n_buckets);
     memset(new_vals, -1, sizeof(i32) * new_n_buckets);
+
+    arr_append_many(&m->keys, 0, m->n_buckets);
 
     for (int i = 0; i < m->n_buckets; i++)
     {
