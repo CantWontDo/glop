@@ -26,19 +26,6 @@ u8 *arr_header_new(const u32 cap, const size_t elem_size)
     return arr_;
 }
 
-void arr_grow(void **arr)
-{
-    arr_header *head = arr_get_header(*arr);
-    u32 size = sizeof(arr_header) + head->cap * head->elem_size;
-
-    u8 *new_arr = realloc((u8*) head, size);
-    if (!new_arr)
-        log_err("couldn't grow array!");
-
-    head = (arr_header*) new_arr;
-    *arr = new_arr + sizeof(arr_header);
-}
-
 void arr_append(void **arr_, const void *elem)
 {
     u8 **arr = arr_;
@@ -47,7 +34,14 @@ void arr_append(void **arr_, const void *elem)
     if (head->count == head->cap)
     {
         head->cap *= 2;
-        arr_grow(arr_);
+        u32 size = sizeof(arr_header) + head->cap * head->elem_size;
+
+        u8 *new_arr = realloc((u8*) head, size);
+        if (!new_arr)
+            log_err("couldn't grow array!");
+
+        head = (arr_header*) new_arr;
+        *arr = new_arr + sizeof(arr_header);
     }
 
     memcpy(*arr + head->count * head->elem_size, elem, head->elem_size);
@@ -65,7 +59,14 @@ void arr_append_many(void **dst, const void *src, const u32 n_elems)
     {
         while (head->cap <= new_count)
             head->cap *= 2;
-        arr_grow(dst);
+        u32 size = sizeof(arr_header) + head->cap * head->elem_size;
+
+        u8 *new_arr = realloc((u8*) head, size);
+        if (!new_arr)
+            log_err("couldn't grow array!");
+
+        head = (arr_header*) new_arr;
+        *dst = new_arr + sizeof(arr_header);
     }
 
     memcpy(*dst + head->count * head->elem_size, src, n_elems * head->elem_size);

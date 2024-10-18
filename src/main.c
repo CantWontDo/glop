@@ -79,23 +79,35 @@ int main(void)
     int frame_count = 0;
 
     float *test = arr_new(float);
-    map m = map_new(16);
-    for (int i = 0; i < 10; i++)
-    {
-        arr_append(&test, &points[i]);
-    }
-    arr_append_many(&test, &points[0], 20);
+    map m = map_new(1);
+
+    map_add(&m, "point1", &test, &points[0]);
+    map_add(&m, "point2", &test, &points[1]);
+    map_add(&m, "point3", &test, &points[2]);
+    map_add(&m, "point4", &test, &points[3]);
+
+    u32 idx1 = map_lookup(&m, "point1");
+    u32 idx2 = map_lookup(&m, "point2");
+    u32 idx3 = map_lookup(&m, "point3");
+    u32 idx4 = map_lookup(&m, "point4");
+
+    printf("%d %d %f %f\n", 0, idx1, test[0], test[idx1]);
+    printf("%d %d %f %f\n", 1, idx2, test[1], test[idx2]);
+    printf("%d %d %f %f\n", 2, idx3, test[2], test[idx3]);
+    printf("%d %d %f %f\n", 3, idx4, test[3], test[idx4]);
 
     while (!glfwWindowShouldClose(window))
     {
         float loop = sinf(glfwGetTime());
+        float loop2 = cosf(glfwGetTime());
         loop *= loop * loop;
+        loop2 *= loop2 * loop2;
 
         // weird pop out of edge effect
         // loop = 1 / (loop * loop * loop);
 
-        m4 scale = m4_scale(0.25 * fabsf(loop) + 0.25, 0.5 * fabsf(loop) + 0.5, 1);
-        m4 trans = m4_transform(loop * 0.5, 0, 0);
+        m4 scale = m4_scale(0.15 * fabsf(loop) + 0.25, 0.4 * fabsf(loop) + 0.5, 1);
+        m4 trans = m4_transform(loop2 * 0.75, loop * 0.75, 0);
 
         m4 concat = m4_mul_m(scale, trans);
 
