@@ -123,7 +123,34 @@ shdr shdr_new(u32 n_shdr, ...)
     glLinkProgram(id);
     prog_check(id);
 
-    shdr s = {.id = id, .unifs = 0};
+    u32 unif_count = 0;
+    glGetProgramiv(id, GL_ACTIVE_UNIFORMS, &unif_count);
+    unif *unifs = 0;
+    map m;
+
+    if (unif_count != 0)
+    {
+        u32 max_name_len = 0;
+        u32 len = 0;
+        u32 count = 0;
+        u32 type = 0;
+        glGetProgramiv(id, GL_ACTIVE_UNIFORM_MAX_LENGTH, &max_name_len);
+
+        unifs = arr_new_size(unif, unif_count);
+        m = map_new(unif_count);
+
+        char *name = malloc(sizeof(char) * max_name_len);
+
+        for (int i = 0; i < unif_count; i++)
+        {
+            glGetActiveUniform(id, i, max_name_len, &len, &count, &type, name);
+
+            unif u = (unif){.count = count, .loc = glGetUniformLocation(id, name)};
+
+            map_add(&m, name, &unifs, &u);
+        }
+    }
+    shdr s = {.id = id, .unifs = unifs, .m = m};
     return s;
 }
 
@@ -174,4 +201,59 @@ void prog_check(u32 id)
         log_err("failed to link program:\n%s\n", info_log);
     }
 
+}
+
+u32 shdr_get_loc(shdr *s, char *unif_name)
+{
+    unif u = s->unifs[map_lookup(&s->m, unif_name)];
+    u32 loc = u.loc;
+    if (loc == -1)
+        log_err("uniform %s does not exist in shader!", unif_name);
+
+    return loc;
+}
+
+void shdr_m4f(shdr *s, char *unif_name, m4 *val)
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniformMatrix4fv(s->id, loc, 1, GL_TRUE, &val->m[0]);
+}
+void shdr_m3f(shdr *s, char *unif_name, m3 *val)
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniformMatrix3fv(s->id, loc, 1, GL_TRUE, &val->m[0]);
+}
+void shdr_m2f(shdr *s, char *unif_name, m2 *val)
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniformMatrix2fv(s->id, loc, 1, GL_TRUE, &val->m[0]);
+}
+
+void shdr_1f(shdr *s, char *unif_name, const float *val)
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniform1fv(s->id, loc, 1, val);
+}
+
+void shdr_2f(shdr *s, char *unif_name, v2 *val)
+
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniformMatrix2fv(s->id, loc, 1, GL_TRUE, &val->v[0]);
+}
+void shdr_3f(shdr *s, char *unif_name, v3 *val)
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniformMatrix3fv(s->id, loc, 1, GL_TRUE, &val->v[0]);
+}
+void shdr_4f(shdr *s, char *unif_name, v4 *val)
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniformMatrix2fv(s->id, loc, 1, GL_TRUE, &val->v[0]);
+}
+
+void shdr_1i(shdr *s, char *unif_name, const int *val)
+{
+    int loc = shdr_get_loc(s, unif_name);
+    glProgramUniform1iv(s->id, loc, 1, val);
 }

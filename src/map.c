@@ -9,15 +9,15 @@ map map_new(u32 n_buckets)
 {
     map m =
     {
-        .idx_s = 0,
+        .running_idx = 0,
         .n_buckets = n_buckets,
         .f_buckets =  0,
         .key_hash = arr_new_size(u32, n_buckets),
-        .vals = arr_new_size(map_entry, n_buckets)
+        .entries = arr_new_size(map_entry, n_buckets)
     };
 
     memset(m.key_hash, 0, sizeof(u32) * n_buckets);
-    memset(m.vals, -1, sizeof(map_entry) * n_buckets);
+    memset(m.entries, -1, sizeof(map_entry) * n_buckets);
     return m;
 }
 
@@ -28,70 +28,86 @@ void map_add(map *m, const void *k, void **arr, const void *elem)
 
     if (load_fac > MAX_LOAD_FACTOR)
     {
-        printf("idx_s: %d, n_buckets: %lu, load_fac: %f rehash!\n", m->idx_s, m->n_buckets, load_fac);
+        printf("idx_s: %d, n_buckets: %lu, load_fac: %f rehash!\n", m->running_idx, m->n_buckets, load_fac);
         map_rehash(m);
     }
+
     u32 hashed = hash(k);
     arr_append(&m->key_hash, &hashed);
 
     u32 idx = hashed % m->n_buckets;
 
-    while (m->vals[idx].idx != -1)
+    // in case of collision, look for a tombstone (-1)
+    while (m->entries[idx].idx != -1)
     {
         idx++;
-        if (idx > arr_cap(m->vals))
+        if (idx > arr_cap(m->entries))
             idx = 0;
     }
 
-    m->vals[idx] = (map_entry){.idx = m->idx_s, .hash = hashed};
+    // store hash to resolve collision when rehashing
+    m->entries[idx] = (map_entry){.idx = m->running_idx, .hash = hashed};
 
-    m->idx_s++;
+    m->running_idx++;
     m->f_buckets++;
 }
 
-u32 map_lookup(map *m, const void *k)
+i32 map_lookup(map *m, const void *k)
 {
     u32 hashed = hash(k);
     u32 idx = hashed % m->n_buckets;
 
-    while (m->vals[idx].hash != hashed)
+    // resolve collision by comparing hash
+    bool in_map = true;
+    u32 count = 0;
+    while (m->entries[idx].hash != hashed)
     {
         idx++;
-        if (idx > arr_cap(m->vals))
+        count++;
+        if (idx > arr_cap(m->entries))
             idx = 0;
+
+        if (count >= m->n_buckets)
+        {
+            log_info("key not found in map!");
+            return -1;
+        }
     }
 
-    return m->vals[idx].idx;
+    return m->entries[idx].idx;
 }
 
 void map_rehash(map *m)
 {
     u32 new_n_buckets = m->n_buckets * 2;
-    map_entry *new_vals = arr_new_size(map_entry, new_n_buckets);
-    memset(new_vals, -1, sizeof(map_entry) * new_n_buckets);
+    map_entry *new_entries = arr_new_size(map_entry, new_n_buckets);
+    memset(new_entries, -1, sizeof(map_entry) * new_n_buckets);
 
     for (int i = 0; i < arr_count(m->key_hash); i++)
     {
         u32 hashed = m->key_hash[i];
+
+        // remap
         u32 idx = hashed % m->n_buckets;
         u32 new_idx = hashed % new_n_buckets;
 
-        while (m->vals[idx].hash != hashed)
+        while (m->entries[idx].hash != hashed)
         {
             idx++;
             if (idx > m->n_buckets)
                 idx = 0;
         }
 
-        while (new_vals[new_idx].idx != -1)
+        // look for tombstone to put
+        while (new_entries[new_idx].idx != -1)
         {
             new_idx++;
             if (new_idx > new_n_buckets)
                 new_idx = 0;
         }
 
-        new_vals[new_idx] = m->vals[idx];
+        new_entries[new_idx] = m->entries[idx];
     }
-    m->vals = new_vals;
+    m->entries = new_entries;
     m->n_buckets = new_n_buckets;
 }

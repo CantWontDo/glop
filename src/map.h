@@ -20,14 +20,14 @@ typedef struct map
     u32 n_buckets;
     u32 f_buckets;
     u32 *key_hash;
-    map_entry *vals;
+    map_entry *entries;
 
-    u32 idx_s;
+    u32 running_idx;
 } map;
 
 map map_new(u32 n_buckets);
 void map_add(map *m, const void *k, void **arr, const void *elem);
-u32 map_lookup(map *m, const void *k);
+i32 map_lookup(map *m, const void *k);
 
 void map_rehash(map *m);
 #endif //MAP_H

@@ -78,24 +78,6 @@ int main(void)
     double current_sec = 0;
     int frame_count = 0;
 
-    float *test = arr_new(float);
-    map m = map_new(1);
-
-    map_add(&m, "point1", &test, &points[0]);
-    map_add(&m, "point2", &test, &points[1]);
-    map_add(&m, "point3", &test, &points[2]);
-    map_add(&m, "point4", &test, &points[3]);
-
-    u32 idx1 = map_lookup(&m, "point1");
-    u32 idx2 = map_lookup(&m, "point2");
-    u32 idx3 = map_lookup(&m, "point3");
-    u32 idx4 = map_lookup(&m, "point4");
-
-    printf("%d %d %f %f\n", 0, idx1, test[0], test[idx1]);
-    printf("%d %d %f %f\n", 1, idx2, test[1], test[idx2]);
-    printf("%d %d %f %f\n", 2, idx3, test[2], test[idx3]);
-    printf("%d %d %f %f\n", 3, idx4, test[3], test[idx4]);
-
     while (!glfwWindowShouldClose(window))
     {
         float loop = sinf(glfwGetTime());
@@ -114,8 +96,8 @@ int main(void)
         glClearColor(0.6f, 0.6f, 0.8f, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         shdr_bind(&s);
-        int loc = glGetUniformLocation(s.id, "world");
-        glUniformMatrix4fv(loc, 1, GL_TRUE, &concat.m[0]);
+        shdr_m4f(&s, "world", &concat);
+        shdr_1f(&s, "_time", &loop);
 
         vao_bind(&v);
         glDrawArrays(GL_TRIANGLES, 0, 3);
