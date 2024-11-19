@@ -106,7 +106,6 @@ void vao_bind(vao *v)
 shdr shdr_new(u32 n_shdr, ...)
 {
     u32 id = glCreateProgram();
-
     va_list shdrs;
 
     va_start(shdrs, n_shdr);

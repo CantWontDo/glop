@@ -25,6 +25,11 @@ typedef int64_t i64;
 typedef float_t f32;
 typedef double_t f64;
 
+#define PI 3.1415926
+#define MIN(x, y) ((x) < (y) ? (x) : (y))
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+#define CLAMP(x, upper, lower) (MIN((upper), MAX((x), (lower)))
+
 typedef union v2
 {
     struct
@@ -158,8 +163,18 @@ typedef union v4
     {
         float r, g, b, a;
     };
+
+    // for quaternions!
+    struct
+    {
+        float w_q;
+        v3 v_q;
+    };
     float v[4];
 } v4;
+
+typedef v4 quat;
+static const quat quat_ident = {.w_q = 1, .v_q = v3_zero};
 
 static const v4 v4_uy = {1, 0, 0, 0};
 static const v4 v4_ux = {0, 1, 0, 0};
@@ -461,10 +476,60 @@ inline static m4 m4_transform(float x, float y, float z)
     return out;
 }
 
+inline static float deg_to_rad(float degrees)
+{
+    return degrees * PI / 180.0;
+}
+
+inline static float rad_to_deg(float radians)
+{
+    return radians * 180 / PI;
+}
+
+inline static m4 m4_rot_x(float radians)
+{
+    m4 out = m4_ident;
+
+    out.r[1].y = cosf(radians);
+    out.r[1].z = sinf(radians);
+
+    out.r[2].y = -sinf(radians);
+    out.r[2].y = cosf(radians);
+
+    return out;
+}
+
+inline static m4 m4_rot_y(float radians)
+{
+    m4 out = m4_ident;
+
+    out.r[0].x = cosf(radians);
+    out.r[0].z = -sinf(radians);
+
+    out.r[2].x = sinf(radians);
+    out.r[2].z = cosf(radians);
+
+    return out;
+}
+
+inline static m4 m4_rot_z(float radians)
+{
+    m4 out = m4_ident;
+
+    out.r[0].x = cosf(radians);
+    out.r[0].y = sinf(radians);
+
+    out.r[1].x = -sinf(radians);
+    out.r[1].y = cosf(radians);
+
+    return out;
+}
+
 inline static m4 m4_transform_v(v3 v)
 {
     return m4_transform(v.x, v.y, v.z);
 }
+
 inline static float m4_det(m4 m)
 {
     return m._11 *
@@ -577,6 +642,107 @@ inline static v4 v4_mul_m4(m4 m, v4 v)
     return out;
 }
 
+inline static quat quat_conjugate(quat q)
+{
+    quat out = q;
+    out.v_q = v3_mul(out.v_q, -1);
+    return out;
+}
+
+inline static quat quat_mul(quat q1, quat q2)
+{
+   quat out = quat_ident;
+   out.w_q = q1.w_q*q2.w_q - v3_dot(q1.v_q, q2.v_q);
+   out.v_q = v3_add(v3_add(v3_mul(q2.v_q, q1.w_q), v3_mul(q1.v_q, q2.w_q)),
+        v3_cross(q1.v_q, q2.v_q));
+
+   return out;
+}
+
+inline static quat quat_from_euler_rad(float pitch, float heading, float bank)
+{
+    quat out = quat_ident;
+
+    float h_cos = cosf(heading / 2);
+    float h_sin = sinf(heading / 2);
+
+    float p_cos = cosf(pitch / 2);
+    float p_sin = sinf(pitch / 2);
+
+    float b_cos = cosf(bank / 2);
+    float b_sin = sinf(bank / 2);
+
+    out.x = h_cos*p_cos*b_cos + h_sin*p_sin*b_sin;
+    out.y = -h_cos*p_sin*b_cos - h_sin*p_cos*b_sin;
+    out.z = h_cos*p_sin*b_sin - h_sin*p_cos*b_cos;
+    out.w = h_sin*p_sin*b_cos - h_cos*p_cos*b_sin;
+
+    return out;
+}
+inline static quat quat_from_euler(float pitch, float heading, float bank)
+{
+    return quat_from_euler_rad(deg_to_rad(pitch), deg_to_rad(heading), deg_to_rad(bank));
+}
+
+inline static quat quat_slerp(quat q1, quat q2, float t)
+{
+    quat out;
+
+    float cos_omega = v4_dot(q1, q2);
+
+    if (cos_omega < 0.0f)
+    {
+        q2 = v4_mul(q2, -1);
+        cos_omega = -cos_omega;
+    }
+
+    float k0, k1;
+    if (cos_omega > 0.9999f)
+    {
+        k0 = 1.0f - t;
+        k1 = t;
+    }
+    else
+    {
+        // compute sin of angle with trig identity
+        float sin_omega = sqrtf(1.0f - cos_omega*cos_omega);
+
+        // compute angle from sin and cosine
+        float omega = atan2(sin_omega, cos_omega);
+        float one_over_sin_omega = 1.0f / sin_omega;
+
+        k0 = sin((1.0f - t) * omega) * one_over_sin_omega;
+        k1 = sin(t * omega) * one_over_sin_omega;
+    }
+
+    out = v4_add(v4_mul(q1, k0), v4_mul(q2, k1));
+    return out;
+}
+
+inline static m4 quat_to_m4(quat q)
+{
+    m4 out = m4_ident;
+
+    float w = q.w_q;
+    float x = q.v_q.x;
+    float y = q.v_q.y;
+    float z = q.v_q.z;
+
+    out._11 = 1 - 2*y*y - 2*z*z;
+    out._12 = 2*x*y + 2*w*z;
+    out._13 = 2*x*z - 2*w*y;
+
+    out._21 = 2*x*y - 2*w*z;
+    out._22 = 1 - 2*x*x - 2*z*z;
+    out._23 = 2*y*z + 2*w*x;
+
+    out._31 = 2*x*z + 2*w*y;
+    out._32 = 2*y*z - 2*w*x;
+    out._33 = 1 - 2*x*x - 2*y*y;
+
+    return out;
+}
+
 static char *read_txt_file(char *file_name)
 {
     FILE *file = fopen(file_name, "r");
@@ -594,6 +760,30 @@ static char *read_txt_file(char *file_name)
     buffer = calloc(buffer_size, sizeof(char));
     int read_size = fread(buffer, sizeof(char), buffer_size, file);
     buffer = (char *)realloc(buffer, read_size + 1);
+    fclose(file);
+    return buffer;
+}
+
+static u8 *read_bin_file(char *file_name)
+{
+    FILE *file = fopen(file_name, "rb");
+    if (!file)
+    {
+        log_err("Couldn't open file at %s\n", file_name);
+        return 0;
+    }
+
+    fseek(file, 0L, SEEK_END);
+    const int buffer_size = ftell(file);
+    rewind(file);
+
+    u8 *buffer = malloc(buffer_size);
+    if (!fread(buffer, buffer_size, 1, file))
+    {
+        fclose(file);
+        free(buffer);
+        log_err("couldn't read from file!");
+    }
     fclose(file);
     return buffer;
 }

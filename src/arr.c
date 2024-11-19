@@ -74,17 +74,25 @@ void arr_append_many(void **dst, const void *src, const u32 n_elems)
     head->count = new_count;
 }
 
-bool arr_has(void *arr, const void *elem, size_t elem_size)
+bool arr_has(void *arr_, const void *elem, size_t elem_size)
 {
-    if (arr_elem_size(arr) != elem_size)
-        log_err("element sizes are not equal!");
+    u8 *arr = arr_;
+    arr_header *head = arr_get_header(arr);
 
-    for (int i = 0; i < arr_count(arr); i++)
+    if (head->elem_size != elem_size)
     {
-        u8 *elem_ = &arr[i];
-        if (memcmp(elem_, elem, arr_elem_size(arr)) == 0)
-            return true;
+        log_err("incompatible type");
     }
+
+    for (int i = 0; i < head->count; i++)
+    {
+        u8 *a = arr + head->elem_size * i;
+        if (!memcmp(a, elem, head->elem_size))
+        {
+          return true;
+        }
+    }
+
     return false;
 }
 

@@ -4,7 +4,7 @@
 
 #include "map.h"
 
-#define MAX_LOAD_FACTOR 0.7
+#define MAX_LOAD_FACTOR 0.75
 map map_new(u32 n_buckets)
 {
     map m =
@@ -38,6 +38,7 @@ void map_add(map *m, const void *k, void **arr, const void *elem)
     u32 idx = hashed % m->n_buckets;
 
     // in case of collision, look for a tombstone (-1)
+    // TODO: try quadratic probing or some other type later?
     while (m->entries[idx].idx != -1)
     {
         idx++;
@@ -55,23 +56,19 @@ void map_add(map *m, const void *k, void **arr, const void *elem)
 i32 map_lookup(map *m, const void *k)
 {
     u32 hashed = hash(k);
+    if (!arr_has(m->key_hash, &hashed, sizeof(u32)))
+    {
+        return -1;
+    }
+
     u32 idx = hashed % m->n_buckets;
 
     // resolve collision by comparing hash
-    bool in_map = true;
-    u32 count = 0;
     while (m->entries[idx].hash != hashed)
     {
         idx++;
-        count++;
         if (idx > arr_cap(m->entries))
             idx = 0;
-
-        if (count >= m->n_buckets)
-        {
-            log_info("key not found in map!");
-            return -1;
-        }
     }
 
     return m->entries[idx].idx;

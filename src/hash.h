@@ -8,7 +8,7 @@
 #include "typedefs.h"
 
 
-static u32 hash(const void *data)
+static u32 hash(void *data)
 {
     u32 hash_t = 5381;
     char c;

@@ -1,4 +1,5 @@
 //
+//
 // Created by iamro on 10/4/2024.
 //
 
@@ -12,7 +13,6 @@ bool restart_log()
         fprintf(stderr, "Couldn't open log at %s\n", GL_LOG_FILEPATH);
         return false;
     }
-
     time_t now = time(0);
     char *date = ctime(&now);
     fprintf(file, "Began logging at %s\n", date);

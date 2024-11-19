@@ -11,6 +11,10 @@
 #include "arr.h"
 #include "map.h"
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+}
 int main(void)
 {
     assert(restart_log());
@@ -25,15 +29,12 @@ int main(void)
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_SAMPLES, 4);
-    glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
 
     GLFWmonitor *monitor = glfwGetPrimaryMonitor();
     const GLFWvidmode *vmode = glfwGetVideoMode(monitor);
+    GLFWwindow* window = glfwCreateWindow(1280, 1280, "glop", 0, 0);
 
-    GLFWwindow* window = glfwCreateWindow(vmode->width, vmode->height, "glop", 0, 0);
     if (!window)
     {
         log_err("Couldn't create window!");
@@ -42,13 +43,13 @@ int main(void)
     }
 
     glfwMakeContextCurrent(window);
-
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         log_err("Couldn't load GLAD!");
         glfwTerminate();
         return -1;
     }
+    glfwSwapInterval(1);
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
@@ -59,18 +60,27 @@ int main(void)
 
     // should be in clockwise order
     GLfloat points[] = {
-        0.0f, 0.5f, 0.0f,
+        0.25f, 0.25f, 0.0f,
         1.0f, 0.0f, 0.0f,
-        0.5f, -0.5f, 0.0f,
+        0.25f, -0.25f, 0.0f,
         0.0f, 1.0f, 0.0f,
-        -0.5f, -0.5f, 0.0f,
+        -0.25f, -0.25f, 0.0f,
         0.0f, 0.0f, 1.0f,
+        -0.25f, 0.25f, 0.0f,
+        1.0f, 1.0f, 1.0f
     };
+
+    u32 indices[] =
+        {0, 1, 3,
+         1, 2, 3};
 
     buf vbo = vbo_new();
     buf_data(&vbo, sizeof(points), points, GL_DYNAMIC_STORAGE_BIT);
 
-    vao v = vao_new(&vbo, 0, 2, 3, GL_FLOAT, 3, GL_FLOAT);
+    buf ebo = ebo_new();
+    buf_data(&ebo, sizeof(indices), indices, GL_DYNAMIC_STORAGE_BIT);
+
+    vao v = vao_new(&vbo, &ebo, 2, 3, GL_FLOAT, 3, GL_FLOAT);
 
     shdr s = shdr_new(2, GL_VERTEX_SHADER, "res/test.vsh", GL_FRAGMENT_SHADER, "res/test.fsh");
 
@@ -78,30 +88,40 @@ int main(void)
     double current_sec = 0;
     int frame_count = 0;
 
+    double fps = 0;
+
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     while (!glfwWindowShouldClose(window))
     {
         float loop = sinf(glfwGetTime());
         float loop2 = cosf(glfwGetTime());
-        loop *= loop * loop;
-        loop2 *= loop2 * loop2;
 
-        // weird pop out of edge effect
-        // loop = 1 / (loop * loop * loop);
+        loop = loop * loop * loop;
+        loop = loop * loop * loop;
+        loop2 = loop2 * loop2 * loop2;
+        loop2 = loop2 * loop2 * loop2;
 
-        m4 scale = m4_scale(0.15 * fabsf(loop) + 0.25, 0.4 * fabsf(loop) + 0.5, 1);
-        m4 trans = m4_transform(loop2 * 0.75, loop * 0.75, 0);
+        m4 scale = m4_scale(fabs(loop2) + 0.5, fabs(loop) + 0.5, 1);
+        m4 trans = m4_transform(loop2 * 0.5 - loop * 0.5, loop * 0.5 + loop2 * 0.5, 0.0);
 
-        m4 concat = m4_mul_m(scale, trans);
+        quat quat_one = quat_from_euler(0, 0, 0);
+        quat quat_two = quat_from_euler(0, 0, 180);
 
-        glClearColor(0.6f, 0.6f, 0.8f, 1.0);
+        quat result = quat_slerp(quat_one, quat_two, (sinf(glfwGetTime() * 2) + 1) / 2);
+        m4 rot = quat_to_m4(result);
+
+        scale = m4_mul_m(scale, rot);
+        scale = m4_mul_m(scale, trans);
+
+        glClearColor(0.6, 0.6, 0.6, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         shdr_bind(&s);
-        shdr_m4f(&s, "world", &concat);
-        shdr_1f(&s, "_time", &loop);
+        shdr_m4f(&s, "world", &scale);
+        float time = glfwGetTime();
+        shdr_1f(&s, "time", &time);
 
         vao_bind(&v);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         glfwPollEvents();
         glfwSwapBuffers(window);
 
@@ -110,13 +130,15 @@ int main(void)
         if (elapsed_sec > 0.25)
         {
             prev_sec = current_sec;
-            double fps = (double)frame_count / elapsed_sec;
+            fps = (double)frame_count / elapsed_sec;
+
             char buf[128];
             sprintf(buf, "glop @ fps: %.2f", fps);
             glfwSetWindowTitle(window, buf);
 
             frame_count = 0;
         }
+
         frame_count++;
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_ESCAPE))
             glfwSetWindowShouldClose(window, true);
