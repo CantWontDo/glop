@@ -170,10 +170,10 @@ int main(void)
         float cursor_x_offset = fabsf(cursor_x_pos - cursor_x_prev_pos);
         float cursor_y_offset = fabsf(cursor_y_pos - cursor_y_prev_pos);
 
-        float pitch_change = asin(cursor_y_offset);
-        float heading_change = asin(cursor_x_offset);
-        log_info("pitch change: %f\n ", pitch_change);
-        log_info("heading change: %f\n ", heading_change);
+        float pitch_change = -cursor_y_offset * PI / 180 * 10;
+        float heading_change = cursor_x_offset * PI / 180 * 10;
+        log_info("pitch change: %f\n ", cursor_x_offset);
+        log_info("heading change: %f\n ", -cursor_y_offset);
 
         cam_heading += heading_change;
         cam_pitch += pitch_change;
@@ -205,13 +205,14 @@ int main(void)
         m4 perspective = m4_perspective(fov_x, win_phys_aspect_ratio, near, far);
 
         m4 view = m4_transform(cam_pos.x, cam_pos.y, cam_pos.z);
-        quat quat_view = quat_from_euler(0, 0, 0);
-        quat quat_view_slerp = quat_from_euler(0, 180, 0);
-        quat view_result = quat_slerp(quat_view, quat_view_slerp, (sinf(glfwGetTime() * 2) + 1) / 2);
+        quat quat_view = quat_from_euler(cam_pitch, cam_heading, 0);
+        quat quat_view_slerp = quat_from_euler(cam_pitch, cam_heading, 0);
+        quat view_result = quat_slerp(quat_view, quat_view_slerp, glfwGetTime());
 
-        m4 view_rot = quat_to_m4(view_result);
+        m4 view_rot = quat_to_m4(quat_view_slerp);
 
         view = m4_mul_m(view, view_rot);
+        // TODO: optimize inverse by transposing rotation and just negating translation (adjoint is overkill)
         view = m4_inv(view);
 
         quat quat_one = quat_from_euler(0, 0, 0);
