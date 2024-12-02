@@ -531,6 +531,8 @@ inline static m4 m4_transform(float x, float y, float z)
     return out;
 }
 
+inline static m4 m4_look_at()
+
 inline static float deg_to_rad(float degrees)
 {
     return degrees * PI / 180.0;
@@ -598,7 +600,7 @@ inline static m4 m4_perspective(float fov_x, float physical_aspect_ratio, float 
     out._34 = -1;
 
     return out;
- }
+}
 
 inline static float m4_det(m4 m)
 {

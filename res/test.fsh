@@ -11,6 +11,7 @@ void main()
         / 1.2 * abs(_pos.x) / abs(_pos.y);
     frag_color /= length(frag_color);
     frag_color += vec4(0.5 - _pos.y, abs(_pos.x), 0.5 + _pos.y, 1.0);
+    frag_color *= length(frag_color);
     // save this for later
     // * sqrt(_pos.x*_pos.x + _pos.y*_pos.y);
 

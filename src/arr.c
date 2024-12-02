@@ -96,14 +96,6 @@ bool arr_has(void *arr_, const void *elem, size_t elem_size)
     return false;
 }
 
-char *arr_to_str(void *arr)
-{
-    char *str = malloc(arr_count(arr) + 1);
-    memcpy(str, arr, arr_count(arr));
-    str[arr_count(arr)] = '\0';
-    return str;
-}
-
 void arr_del(void *arr)
 {
     free(arr_get_header(arr));

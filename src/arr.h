@@ -18,16 +18,14 @@ typedef struct arr_header
 } arr_header;
 
 arr_header *arr_get_header(void *arr);
-u8 *arr_header_new(const u32 cap, const size_t elem_size);
+u8 *arr_header_new(u32 cap, size_t elem_size);
 
 void arr_append(void **arr, const void *elem);
-void arr_append_many(void **dst_, const void *src, const u32 n_elems);
+void arr_append_many(void **dst_, const void *src, u32 n_elems);
 
 void arr_del(void *arr);
 
 void *arr_end(void *arr);
-
-char *arr_to_str(void *arr);
 
 bool arr_has(void *arr, const void *elem, size_t elem_size);
 

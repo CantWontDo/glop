@@ -16,7 +16,7 @@ static u32 hash(void *data)
 
     while ((c = *data_++))
     {
-        hash_t = ((hash_t << 5) + hash_t) + c;
+        hash_t = (hash_t << 5) + hash_t + c;
     }
 
     hash_t ^= hash_t >> 16;

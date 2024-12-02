@@ -61,28 +61,28 @@ int main(void)
     // glCullFace(GL_BACK);
     // glFrontFace(GL_CW);
 
-    int win_pos_x = 0;
-    int win_pos_y = 0;
+    i32 win_pos_x = 0;
+    i32 win_pos_y = 0;
     glfwGetWindowPos(window, &win_pos_x, &win_pos_y);
 
-    int device_width = 0;
-    int device_height = 0;
+    i32 device_width = 0;
+    i32 device_height = 0;
     glfwGetMonitorPhysicalSize(monitor, &device_width, &device_height);
 
-    int window_width = 0;
-    int window_height = 0;
+    i32 window_width = 0;
+    i32 window_height = 0;
     glfwGetWindowSize(window, &window_width, &window_height);
 
-    float pixel_aspect_ratio = ((float) vmode->height/ vmode->width)
-        * ((float)device_width / (float)device_height);
+    f32 pixel_aspect_ratio = ((f32) vmode->height/ vmode->width)
+        * ((f32)device_width / (f32)device_height);
 
-    float win_phys_aspect_ratio = ((float)window_width / (float)window_height)
+    f32 win_phys_aspect_ratio = ((f32)window_width / (f32)window_height)
         * pixel_aspect_ratio;
 
-    float fov_x = PI / 2;
-    float zoom_x = 1 / tanf(fov_x / 2);
-    float zoom_y = zoom_x * win_phys_aspect_ratio;
-    float fov_y = 2 * atanf(1 / zoom_y);
+    f32 fov_x = PI / 2;
+    f32 zoom_x = 1 / tanf(fov_x / 2);
+    f32 zoom_y = zoom_x * win_phys_aspect_ratio;
+    f32 fov_y = 2 * atanf(1 / zoom_y);
     
     log_info("pixel size: %f\n", pixel_aspect_ratio);
     log_info("physical aspect ratio: %f\n", win_phys_aspect_ratio);
@@ -91,9 +91,9 @@ int main(void)
     log_info("zoom x: %f\n", zoom_x);
     log_info("zoom y: %f\n", zoom_y);
 
-    float near = 0.1f;
-    float far = 100.0f;
-    float distance = fabsf(far - near);
+    f32 near = 0.1f;
+    f32 far = 100.0f;
+    f32 distance = fabsf(far - near);
 
     GLfloat points[] = {
         0.25f, 0.25f, 0,
@@ -120,12 +120,12 @@ int main(void)
 
     shdr s = shdr_new(2, GL_VERTEX_SHADER, "res/test.vsh", GL_FRAGMENT_SHADER, "res/test.fsh");
 
-    double prev_time = 0;
-    double current_time = 0;
-    double frame_time = 0;
-    int frame_count = 0;
+    f64 prev_time = 0;
+    f64 current_time = 0;
+    f64 frame_time = 0;
+    i32 frame_count = 0;
 
-    double fps = 0;
+    f64 fps = 0;
 
     log_info("near plane: %f\n", near);
     log_info("far plane: %f\n", far);
@@ -134,25 +134,25 @@ int main(void)
 
     v3 cam_pos = v3_zero;
 
-    double cursor_x_pos = window_width / 2;
-    double cursor_y_pos = window_height / 2;
-    double cursor_x_prev_pos = 0;
-    double cursor_y_prev_pos = 0;
+    f64 cursor_x_pos = window_width / 2;
+    f64 cursor_y_pos = window_height / 2;
+    f64 cursor_x_prev_pos = 0;
+    f64 cursor_y_prev_pos = 0;
 
     glfwSetCursorPos(window, cursor_x_pos, cursor_y_pos);
 
-    double cam_pitch = 0;
-    double cam_heading = -PI / 2;
+    f64 cam_pitch = 0;
+    f64 cam_heading = -PI / 2;
     while (!glfwWindowShouldClose(window))
     {
         prev_time = current_time;
         current_time = glfwGetTime();
-        double elapsed_time = current_time - prev_time;
-        double frame_elapsed = current_time - frame_time;
+        f64 elapsed_time = current_time - prev_time;
+        f64 frame_elapsed = current_time - frame_time;
         if (frame_elapsed > 0.25)
         {
             frame_time = current_time;
-            fps = (double)frame_count / frame_elapsed;
+            fps = (f64)frame_count / frame_elapsed;
 
             char buf[128];
             sprintf(buf, "glop @ fps: %.2f", fps);
@@ -167,19 +167,25 @@ int main(void)
         cursor_y_prev_pos = cursor_y_pos;
         glfwGetCursorPos(window, &cursor_x_pos, &cursor_y_pos);
 
-        float cursor_x_offset = fabsf(cursor_x_pos - cursor_x_prev_pos);
-        float cursor_y_offset = fabsf(cursor_y_pos - cursor_y_prev_pos);
+        f32 cursor_x_offset = cursor_x_pos - cursor_x_prev_pos;
+        f32 cursor_y_offset = cursor_y_pos - cursor_y_prev_pos;
 
-        float pitch_change = -cursor_y_offset * PI / 180 * 10;
-        float heading_change = cursor_x_offset * PI / 180 * 10;
+        f32 pitch_change = cursor_y_offset * PI / 180 * 11;
+        f32 heading_change = cursor_x_offset * PI / 180 * 11;
+
         log_info("pitch change: %f\n ", cursor_x_offset);
-        log_info("heading change: %f\n ", -cursor_y_offset);
+        log_info("heading change: %f\n ", cursor_y_offset);
 
         cam_heading += heading_change;
         cam_pitch += pitch_change;
 
-        float loop = sinf(glfwGetTime());
-        float loop2 = cosf(glfwGetTime());
+        if (cam_pitch > 45.0)
+            cam_pitch = 45.0;
+        if (cam_pitch < -45.0)
+            cam_pitch = -45.0;
+
+        f32 loop = sinf(glfwGetTime());
+        f32 loop2 = cosf(glfwGetTime());
 
         loop = loop * loop * loop;
         loop = loop * loop * loop;
@@ -230,7 +236,7 @@ int main(void)
         shdr_m4f(&s, "world", &scale);
         shdr_m4f(&s, "projection", &perspective);
         shdr_m4f(&s, "view", &view);
-        float time = glfwGetTime();
+        f32 time = glfwGetTime();
         shdr_1f(&s, "time", &time);
 
         vao_bind(&v);
