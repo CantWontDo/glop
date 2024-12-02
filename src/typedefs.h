@@ -39,10 +39,24 @@ typedef union v2
     float v[2];
 } v2;
 
+typedef union iv2
+{
+    struct
+    {
+        int x, y;
+    };
+    int v[2];
+} iv2;
+
 static const v2 v2_uy = {1, 0};
 static const v2 v2_ux = {0, 1};
 static const v2 v2_zero = {0, 0};
 static const v2 v2_one = {1, 1};
+
+static const iv2 iv2_uy = {1, 0};
+static const iv2 iv2_ux = {0, 1};
+static const iv2 iv2_zero = {0, 0};
+static const iv2 iv2_one = {1, 1};
 
 inline static v2 v2_add(v2 a, v2 b)
 {
@@ -82,7 +96,48 @@ static void v2_print(v2 a)
 inline static v2 v2_norm(v2 a)
 {
     float len = v2_len(a);
-    return (v2){a.x / len, a.y / len};
+    return (v2){(a.x / len), (a.y / len)};
+}
+
+inline static iv2 iv2_add(iv2 a, iv2 b)
+{
+    return (iv2){a.x + b.x, a.y + b.y};
+}
+
+inline static iv2 iv2_sub(iv2 a, iv2 b)
+{
+    return (iv2){a.x - b.x, a.y - b.y};
+}
+
+inline static iv2 iv2_mul(iv2 a, float scalar)
+{
+    return (iv2){a.x * scalar, a.y * scalar};
+}
+
+inline static iv2 iv2_div(iv2 a, float scalar)
+{
+    return (iv2){a.x / scalar, a.y / scalar};
+}
+
+inline static float iv2_dot(iv2 a, iv2 b)
+{
+    return a.x * b.x + a.y * b.y;
+}
+
+inline static float iv2_len(iv2 a)
+{
+    return sqrtf(iv2_dot(a, a));
+}
+
+static void iv2_print(iv2 a)
+{
+    printf("[ %d %d ]\n", a.x, a.y);
+}
+
+inline static iv2 iv2_norm(iv2 a)
+{
+    float len = iv2_len(a);
+    return (iv2){(int)(a.x / len), (int)(a.y / len)};
 }
 
 typedef union v3
@@ -529,6 +584,21 @@ inline static m4 m4_transform_v(v3 v)
 {
     return m4_transform(v.x, v.y, v.z);
 }
+
+inline static m4 m4_perspective(float fov_x, float physical_aspect_ratio, float near, float far)
+{
+    float zoom_x = 1 / tanf(fov_x / 2);
+    float zoom_y = zoom_x * physical_aspect_ratio;
+
+    m4 out = m4_ident;
+    out._11 = zoom_x;
+    out._22 = zoom_y;
+    out._33 = -((far + near) / (far - near));
+    out._43 = 2 * near * far / (far - near);
+    out._34 = -1;
+
+    return out;
+ }
 
 inline static float m4_det(m4 m)
 {
