@@ -179,10 +179,10 @@ int main(void)
         cam_heading += heading_change;
         cam_pitch += pitch_change;
 
-        if (cam_pitch > 45.0)
-            cam_pitch = 45.0;
-        if (cam_pitch < -45.0)
-            cam_pitch = -45.0;
+        if (cam_pitch > 90.0)
+            cam_pitch = 90.0;
+        if (cam_pitch < -90.0)
+            cam_pitch = -90.0;
 
         f32 loop = sinf(glfwGetTime());
         f32 loop2 = cosf(glfwGetTime());
@@ -207,19 +207,19 @@ int main(void)
             cam_pos.y += elapsed_time * 3;
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_LEFT_SHIFT))
             cam_pos.y -= elapsed_time * 3;
-        m4 trans = m4_transform(0, 0, 0);
+        m4 trans = m4_translate(0, 0, 0);
         m4 perspective = m4_perspective(fov_x, win_phys_aspect_ratio, near, far);
 
-        m4 view = m4_transform(cam_pos.x, cam_pos.y, cam_pos.z);
+        m4 view = m4_look_at(cam_pos, v3_uz, v3_uy);
         quat quat_view = quat_from_euler(cam_pitch, cam_heading, 0);
         quat quat_view_slerp = quat_from_euler(cam_pitch, cam_heading, 0);
         quat view_result = quat_slerp(quat_view, quat_view_slerp, glfwGetTime());
 
         m4 view_rot = quat_to_m4(quat_view_slerp);
 
-        view = m4_mul_m(view, view_rot);
+        // view = m4_mul_m(view_rot, view);
         // TODO: optimize inverse by transposing rotation and just negating translation (adjoint is overkill)
-        view = m4_inv(view);
+        // view = m4_inv(view);
 
         quat quat_one = quat_from_euler(0, 0, 0);
         quat quat_two = quat_from_euler(0, 0, 0);

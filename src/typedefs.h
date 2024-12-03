@@ -524,14 +524,13 @@ inline static m4 m4_scale_v(v3 a)
     return m4_scale(a.x, a.y, a.z);
 }
 
-inline static m4 m4_transform(float x, float y, float z)
+inline static m4 m4_translate(float x, float y, float z)
 {
     m4 out = m4_ident;
     out.r[3] = (v4){x, y, z, 1};
     return out;
 }
 
-inline static m4 m4_look_at()
 
 inline static float deg_to_rad(float degrees)
 {
@@ -582,9 +581,9 @@ inline static m4 m4_rot_z(float radians)
     return out;
 }
 
-inline static m4 m4_transform_v(v3 v)
+inline static m4 m4_translate_v(v3 v)
 {
-    return m4_transform(v.x, v.y, v.z);
+    return m4_translate(v.x, v.y, v.z);
 }
 
 inline static m4 m4_perspective(float fov_x, float physical_aspect_ratio, float near, float far)
@@ -598,6 +597,30 @@ inline static m4 m4_perspective(float fov_x, float physical_aspect_ratio, float 
     out._33 = -((far + near) / (far - near));
     out._43 = 2 * near * far / (far - near);
     out._34 = -1;
+
+    return out;
+}
+inline static m4 m4_look_at(v3 cam_pos, v3 target, v3 up_fake)
+{
+    v3 forward = v3_norm(v3_sub(target, cam_pos));
+    v3 right = v3_cross(up_fake, forward);
+    v3 up = v3_cross(forward, right);
+
+    m4 out = {0};
+
+    out._11 = right.x;
+    out._12 = up.x;
+    out._13 = -forward.x;
+
+    out._21 = right.y;
+    out._22 = up.y;
+    out._23 = -forward.y;
+
+    out._31 = right.z;
+    out._32 = up.z;
+    out._33 = -forward.z;
+
+    out._44 = 1.0f;
 
     return out;
 }
