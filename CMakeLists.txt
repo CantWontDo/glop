@@ -11,7 +11,7 @@ add_subdirectory(src/lib/glfw)
 add_executable(glop src/main.c
         src/lib/glad/glad.c
         src/lib/glad/glad.h
-        src/lib/glad/khrplatform.h
+        src/lib/glad/KHR/khrplatform.h
         src/err.c
         src/err.h
         src/typedefs.h

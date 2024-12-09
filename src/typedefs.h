@@ -332,9 +332,9 @@ inline static m2 m2_mul_m(m2 m, m2 m_2)
     m2 out;
     m_2 = m2_transpose(m_2);
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 2; i++)
     {
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 2; j++)
             out.m_g[i][j] = v2_dot(m.r[i], m_2.r[j]);
     }
     return out;
@@ -411,9 +411,9 @@ inline static m3 m3_mul_m(m3 m, m3 m2)
     m3 out;
     m2 = m3_transpose(m2);
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 3; j++)
             out.m_g[i][j] = v3_dot(m.r[i], m2.r[j]);
     }
     return out;
@@ -542,9 +542,9 @@ inline static float rad_to_deg(float radians)
     return radians * 180 / PI;
 }
 
-inline static m4 m4_rot_x(float radians)
+inline static m3 m3_rot_x(float radians)
 {
-    m4 out = m4_ident;
+    m3 out = m3_ident;
 
     out.r[1].y = cosf(radians);
     out.r[1].z = sinf(radians);
@@ -555,9 +555,9 @@ inline static m4 m4_rot_x(float radians)
     return out;
 }
 
-inline static m4 m4_rot_y(float radians)
+inline static m3 m3_rot_y(float radians)
 {
-    m4 out = m4_ident;
+    m3 out = m3_ident;
 
     out.r[0].x = cosf(radians);
     out.r[0].z = -sinf(radians);
@@ -568,9 +568,9 @@ inline static m4 m4_rot_y(float radians)
     return out;
 }
 
-inline static m4 m4_rot_z(float radians)
+inline static m3 m3_rot_z(float radians)
 {
-    m4 out = m4_ident;
+    m3 out = m3_ident;
 
     out.r[0].x = cosf(radians);
     out.r[0].y = sinf(radians);
@@ -606,7 +606,7 @@ inline static m4 m4_look_at(v3 cam_pos, v3 target, v3 up_fake)
     v3 right = v3_cross(up_fake, forward);
     v3 up = v3_cross(forward, right);
 
-    m4 out = {0};
+    m4 out = m4_ident;
 
     out._11 = right.x;
     out._12 = up.x;
@@ -620,8 +620,7 @@ inline static m4 m4_look_at(v3 cam_pos, v3 target, v3 up_fake)
     out._32 = up.z;
     out._33 = -forward.z;
 
-    out._44 = 1.0f;
-
+    out.r[3] = (v4){-cam_pos.x, -cam_pos.y, -cam_pos.z, 1.0f};
     return out;
 }
 

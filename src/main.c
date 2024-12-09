@@ -55,6 +55,7 @@ int main(void)
 
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     // TODO (rahul): Check these out again sometime when they don't break things.
     // glEnable(GL_CULL_FACE);
@@ -142,7 +143,7 @@ int main(void)
     glfwSetCursorPos(window, cursor_x_pos, cursor_y_pos);
 
     f64 cam_pitch = 0;
-    f64 cam_heading = -PI / 2;
+    f64 cam_heading = 0;
     while (!glfwWindowShouldClose(window))
     {
         prev_time = current_time;
@@ -170,8 +171,8 @@ int main(void)
         f32 cursor_x_offset = cursor_x_pos - cursor_x_prev_pos;
         f32 cursor_y_offset = cursor_y_pos - cursor_y_prev_pos;
 
-        f32 pitch_change = cursor_y_offset * PI / 180 * 11;
-        f32 heading_change = cursor_x_offset * PI / 180 * 11;
+        f32 pitch_change = cursor_y_offset * elapsed_time * 5;
+        f32 heading_change = cursor_x_offset * elapsed_time * 5;
 
         log_info("pitch change: %f\n ", cursor_x_offset);
         log_info("heading change: %f\n ", cursor_y_offset);
@@ -179,10 +180,10 @@ int main(void)
         cam_heading += heading_change;
         cam_pitch += pitch_change;
 
-        if (cam_pitch > 90.0)
-            cam_pitch = 90.0;
-        if (cam_pitch < -90.0)
-            cam_pitch = -90.0;
+        if (cam_pitch > 90)
+            cam_pitch = 90;
+        if (cam_pitch < -90)
+            cam_pitch = -90;
 
         f32 loop = sinf(glfwGetTime());
         f32 loop2 = cosf(glfwGetTime());
@@ -192,17 +193,25 @@ int main(void)
         loop2 = loop2 * loop2 * loop2;
         loop2 = loop2 * loop2 * loop2;
 
-        m4 scale = m4_scale(1.5, 1.5, 1);
+        m4 scale = m4_scale_u(10);
         // m4 trans = m4_transform(loop2 * 0.5 - loop * 0.5, loop * 0.5 + loop2 * 0.5,
             // (loop2 * 0.5 - loop * 0.5) * -distance);
+
+        v3 x_offset = {1, 0, 0};
+        v3 z_offset = {0, 0 , 1};
+
+        m3 cam_rot_heading = m3_rot_y(deg_to_rad(cam_heading));
+        z_offset = v3_mul_m3(cam_rot_heading, z_offset);
+        x_offset = v3_mul_m3(cam_rot_heading, x_offset);
+
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_D))
-            cam_pos.x += elapsed_time * 3;
+            cam_pos = v3_add(cam_pos, v3_mul(x_offset, elapsed_time * 3));
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_A))
-            cam_pos.x -= elapsed_time * 3;
+            cam_pos = v3_sub(cam_pos, v3_mul(x_offset, elapsed_time * 3));
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_W))
-            cam_pos.z -= elapsed_time * 3;
+            cam_pos = v3_sub(cam_pos, v3_mul(z_offset, elapsed_time * 3));
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_S))
-            cam_pos.z += elapsed_time * 3;
+            cam_pos = v3_add(cam_pos, v3_mul(z_offset, elapsed_time * 3));
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_SPACE))
             cam_pos.y += elapsed_time * 3;
         if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_LEFT_SHIFT))
@@ -210,14 +219,15 @@ int main(void)
         m4 trans = m4_translate(0, 0, 0);
         m4 perspective = m4_perspective(fov_x, win_phys_aspect_ratio, near, far);
 
-        m4 view = m4_look_at(cam_pos, v3_uz, v3_uy);
+        m4 view = m4_look_at(cam_pos, v3_add(cam_pos,  v3_uz), v3_uy);
         quat quat_view = quat_from_euler(cam_pitch, cam_heading, 0);
         quat quat_view_slerp = quat_from_euler(cam_pitch, cam_heading, 0);
         quat view_result = quat_slerp(quat_view, quat_view_slerp, glfwGetTime());
 
         m4 view_rot = quat_to_m4(quat_view_slerp);
+        view_rot = m4_transpose(view_rot);
 
-        // view = m4_mul_m(view_rot, view);
+        view = m4_mul_m(view, view_rot);
         // TODO: optimize inverse by transposing rotation and just negating translation (adjoint is overkill)
         // view = m4_inv(view);
 
@@ -225,7 +235,7 @@ int main(void)
         quat quat_two = quat_from_euler(0, 0, 0);
 
         quat result = quat_slerp(quat_one, quat_two, (sinf(glfwGetTime() * 2) + 1) / 2);
-        m4 rot = quat_to_m4(result);
+        m4 rot = quat_to_m4(quat_two);
 
         scale = m4_mul_m(scale, rot);
         scale = m4_mul_m(scale, trans);
