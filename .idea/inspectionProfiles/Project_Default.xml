@@ -342,7 +342,9 @@
     <inspection_tool class="CssUnusedSymbol" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CustomRegExpInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CyclicJobDependency" enabled="true" level="ERROR" enabled_by_default="true" />
-    <inspection_tool class="CyclomaticComplexityJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CyclomaticComplexityJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_limit" value="10" />
+    </inspection_tool>
     <inspection_tool class="DebuggerStatementJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="DefaultNotLastCaseInSwitchJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="DevContainerIdeSettings" enabled="true" level="ERROR" enabled_by_default="true" />
@@ -400,9 +402,15 @@
     <inspection_tool class="FlowJSCoverage" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="FlowJSError" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="FlowJSFlagCommentPlacement" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="ForLoopReplaceableByWhileJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ForLoopReplaceableByWhileJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_ignoreLoopsWithoutConditions" value="false" />
+    </inspection_tool>
     <inspection_tool class="ForLoopThatDoesntUseLoopVariableJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="FunctionNamingConventionJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="FunctionNamingConventionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_regex" value="[a-z][A-Za-z]*" />
+      <option name="m_minLength" value="4" />
+      <option name="m_maxLength" value="32" />
+    </inspection_tool>
     <inspection_tool class="FunctionWithInconsistentReturnsJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="FunctionWithMultipleLoopsJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="FunctionWithMultipleReturnPointsJS" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -466,7 +474,9 @@
     <inspection_tool class="HttpRequestWhitespaceInsideRequestTargetPath" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="HttpUrlsUsage" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="IfStatementWithIdenticalBranchesJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="IfStatementWithTooManyBranchesJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="IfStatementWithTooManyBranchesJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_limit" value="3" />
+    </inspection_tool>
     <inspection_tool class="IfStdIsConstantEvaluatedCanBeReplaced" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="IgnoreFileDuplicateEntry" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="IllegalJobDependency" enabled="true" level="ERROR" enabled_by_default="true" />
@@ -577,7 +587,11 @@
     <inspection_tool class="LessResolvedByNameOnly" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="LessUnresolvedMixin" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LessUnresolvedVariable" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="LocalVariableNamingConventionJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="LocalVariableNamingConventionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_regex" value="[a-z][A-Za-z]*" />
+      <option name="m_minLength" value="1" />
+      <option name="m_maxLength" value="32" />
+    </inspection_tool>
     <inspection_tool class="LongLine" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="LoopStatementThatDoesntLoopJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LossyEncoding" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -609,9 +623,13 @@
     <inspection_tool class="NestedAssignmentJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="NestedConditionalExpressionJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="NestedFunctionCallJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="NestedFunctionJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NestedFunctionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_includeAnonymousFunctions" value="false" />
+    </inspection_tool>
     <inspection_tool class="NestedSwitchStatementJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="NestingDepthJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NestingDepthJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_limit" value="5" />
+    </inspection_tool>
     <inspection_tool class="NodeCoreCodingAssistance" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="NonAsciiCharacters" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="NonBlockStatementBodyJS" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -620,16 +638,28 @@
     <inspection_tool class="OraMissingBodyInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="OraOverloadInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="OraUnmatchedForwardDeclarationInspection" enabled="true" level="ERROR" enabled_by_default="true" />
-    <inspection_tool class="OverlyComplexArithmeticExpressionJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="OverlyComplexBooleanExpressionJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="OverlyComplexArithmeticExpressionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_limit" value="6" />
+    </inspection_tool>
+    <inspection_tool class="OverlyComplexBooleanExpressionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_limit" value="3" />
+    </inspection_tool>
     <inspection_tool class="PackageJsonMismatchedDependency" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="ParameterNamingConventionJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="ParametersPerFunctionJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ParameterNamingConventionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_regex" value="[a-z][A-Za-z]*" />
+      <option name="m_minLength" value="1" />
+      <option name="m_maxLength" value="32" />
+    </inspection_tool>
+    <inspection_tool class="ParametersPerFunctionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_limit" value="5" />
+    </inspection_tool>
     <inspection_tool class="PgSelectFromProcedureInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PlatformDetectionJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PoetryPackageVersionsInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PointlessArithmeticExpressionJS" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="PointlessBitwiseExpressionJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PointlessBitwiseExpressionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_ignoreExpressionsContainingConstants" value="false" />
+    </inspection_tool>
     <inspection_tool class="PointlessBooleanExpressionJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PostCssCustomMedia" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="PostCssCustomSelector" enabled="true" level="ERROR" enabled_by_default="true" />
@@ -653,7 +683,16 @@
     <inspection_tool class="PyClassVarInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PyClassicStyleClassInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PyComparisonWithNoneInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-    <inspection_tool class="PyCompatibilityInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ourVersions">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.13" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
     <inspection_tool class="PyDataclassInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PyDecoratorInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PyDefaultArgumentInspection" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -756,7 +795,13 @@
       <option name="myAdditionalRequiredHtmlAttributes" value="" />
     </inspection_tool>
     <inspection_tool class="ReservedWordUsedAsNameJS" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="RestRoleInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RestRoleInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredRoles">
+        <value>
+          <list size="0" />
+        </value>
+      </option>
+    </inspection_tool>
     <inspection_tool class="ReturnFromFinallyBlockJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ReuseOfLocalVariableJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="SSBasedInspection" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -823,7 +868,9 @@
     <inspection_tool class="SqlUnusedVariableInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SqlWithoutWhereInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="StandardJS" enabled="false" level="ERROR" enabled_by_default="false" />
-    <inspection_tool class="StatementsPerFunctionJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="StatementsPerFunctionJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_limit" value="30" />
+    </inspection_tool>
     <inspection_tool class="StdIsConstantEvaluatedWillAlwaysEvaluateToConstant" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="StringLiteralBreaksHTMLJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="Stylelint" enabled="false" level="ERROR" enabled_by_default="false" />
@@ -869,8 +916,12 @@
     <inspection_tool class="UnreachableCodeJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnresolvedReference" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="UnsatisfiedRequirementInspection" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UnterminatedStatementJS" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="UnusedCatchParameterJS" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnterminatedStatementJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoreSemicolonAtEndOfBlock" value="true" />
+    </inspection_tool>
+    <inspection_tool class="UnusedCatchParameterJS" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="m_ignoreCatchBlocksWithComments" value="false" />
+    </inspection_tool>
     <inspection_tool class="UnusedDefine" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="UpdateDependencyToLatestVersion" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="VoidExpressionJS" enabled="false" level="WARNING" enabled_by_default="false" />

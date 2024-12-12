@@ -5,6 +5,7 @@
 
 #include "err.h"
 
+#include <tracy/TracyC.h>
 bool restart_log()
 {
     FILE* file = fopen(GL_LOG_FILEPATH, "w");
@@ -22,6 +23,7 @@ bool restart_log()
 
 bool log_err(const char *msg, ...)
 {
+    TracyCZone(log_err, true);
     va_list argptr;
     FILE *file = fopen(GL_LOG_FILEPATH, "a");
     if (!file)
@@ -36,11 +38,13 @@ bool log_err(const char *msg, ...)
     vfprintf(stderr, msg, argptr);
     va_end(argptr);
     fclose(file);
+    TracyCZoneEnd(log_err);
     return true;
 }
 
 bool log_info(const char *msg, ...)
 {
+    TracyCZone(log_info, true);
     va_list argptr;
     FILE *file = fopen(GL_LOG_FILEPATH, "a");
     if (!file)
@@ -52,6 +56,7 @@ bool log_info(const char *msg, ...)
     vfprintf(file, msg, argptr);
     va_end(argptr);
     fclose(file);
+    TracyCZoneEnd(log_info);
     return true;
 }
 

@@ -204,11 +204,12 @@ void prog_check(u32 id)
 
 u32 shdr_get_loc(shdr *s, char *unif_name)
 {
+    TracyCZone(shader_loc, true);
     unif u = s->unifs[map_lookup(&s->m, unif_name)];
     u32 loc = u.loc;
     if (loc == -1)
         log_err("uniform %s does not exist in shader!", unif_name);
-
+    TracyCZoneEnd(shader_loc);
     return loc;
 }
 

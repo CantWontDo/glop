@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "lib/tracy/public/tracy/TracyC.h"
 #include "err.h"
 #include "typedefs.h"
 #include "glop.h"
@@ -133,7 +134,7 @@ int main(void)
     log_info("plane distance: %f\n", distance);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    v3 cam_pos = v3_zero;
+    v3 cam_pos = v3_add(v3_uz, v3_uy);
 
     f64 cursor_x_pos = window_width / 2;
     f64 cursor_y_pos = window_height / 2;
@@ -142,10 +143,10 @@ int main(void)
 
     glfwSetCursorPos(window, cursor_x_pos, cursor_y_pos);
 
-    f64 cam_pitch = 0;
-    f64 cam_heading = 0;
     while (!glfwWindowShouldClose(window))
     {
+        TracyCFrameMark;
+        TracyCZoneN(timer, "frame calculations", true);
         prev_time = current_time;
         current_time = glfwGetTime();
         f64 elapsed_time = current_time - prev_time;
@@ -161,93 +162,72 @@ int main(void)
 
             frame_count = 0;
         }
-
         frame_count++;
+        TracyCZoneEnd(timer);
 
+        TracyCZoneN(cursor, "cursor calculations", true);
         cursor_x_prev_pos = cursor_x_pos;
         cursor_y_prev_pos = cursor_y_pos;
-        glfwGetCursorPos(window, &cursor_x_pos, &cursor_y_pos);
+       glfwGetCursorPos(window, &cursor_x_pos, &cursor_y_pos);
 
-        f32 cursor_x_offset = cursor_x_pos - cursor_x_prev_pos;
-        f32 cursor_y_offset = cursor_y_pos - cursor_y_prev_pos;
-
-        f32 pitch_change = cursor_y_offset * elapsed_time * 5;
-        f32 heading_change = cursor_x_offset * elapsed_time * 5;
-
-        log_info("pitch change: %f\n ", cursor_x_offset);
-        log_info("heading change: %f\n ", cursor_y_offset);
-
-        cam_heading += heading_change;
-        cam_pitch += pitch_change;
-
-        if (cam_pitch > 90)
-            cam_pitch = 90;
-        if (cam_pitch < -90)
-            cam_pitch = -90;
+        TracyCZoneEnd(cursor);
 
         f32 loop = sinf(glfwGetTime());
         f32 loop2 = cosf(glfwGetTime());
 
         loop = loop * loop * loop;
-        loop = loop * loop * loop;
-        loop2 = loop2 * loop2 * loop2;
         loop2 = loop2 * loop2 * loop2;
 
-        m4 scale = m4_scale_u(10);
-        // m4 trans = m4_transform(loop2 * 0.5 - loop * 0.5, loop * 0.5 + loop2 * 0.5,
-            // (loop2 * 0.5 - loop * 0.5) * -distance);
-
-        v3 x_offset = {1, 0, 0};
-        v3 z_offset = {0, 0 , 1};
-
-        m3 cam_rot_heading = m3_rot_y(deg_to_rad(cam_heading));
-        z_offset = v3_mul_m3(cam_rot_heading, z_offset);
-        x_offset = v3_mul_m3(cam_rot_heading, x_offset);
-
-        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_D))
-            cam_pos = v3_add(cam_pos, v3_mul(x_offset, elapsed_time * 3));
-        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_A))
-            cam_pos = v3_sub(cam_pos, v3_mul(x_offset, elapsed_time * 3));
-        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_W))
-            cam_pos = v3_sub(cam_pos, v3_mul(z_offset, elapsed_time * 3));
-        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_S))
-            cam_pos = v3_add(cam_pos, v3_mul(z_offset, elapsed_time * 3));
-        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_SPACE))
-            cam_pos.y += elapsed_time * 3;
-        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_LEFT_SHIFT))
-            cam_pos.y -= elapsed_time * 3;
+        TracyCZoneN(transforms, "transforms", true);
+        m4 scale = m4_scale(10, 10, 1);
         m4 trans = m4_translate(0, 0, 0);
+
         m4 perspective = m4_perspective(fov_x, win_phys_aspect_ratio, near, far);
 
-        m4 view = m4_look_at(cam_pos, v3_add(cam_pos,  v3_uz), v3_uy);
-        quat quat_view = quat_from_euler(cam_pitch, cam_heading, 0);
-        quat quat_view_slerp = quat_from_euler(cam_pitch, cam_heading, 0);
-        quat view_result = quat_slerp(quat_view, quat_view_slerp, glfwGetTime());
-
-        m4 view_rot = quat_to_m4(quat_view_slerp);
-        view_rot = m4_transpose(view_rot);
-
-        view = m4_mul_m(view, view_rot);
         // TODO: optimize inverse by transposing rotation and just negating translation (adjoint is overkill)
         // view = m4_inv(view);
 
-        quat quat_one = quat_from_euler(0, 0, 0);
-        quat quat_two = quat_from_euler(0, 0, 0);
+        quat quat_one = quat_from_euler_rad(0, 0, 0);
+        quat quat_two = quat_from_euler_rad(0, 0, 0);
 
-        quat result = quat_slerp(quat_one, quat_two, (sinf(glfwGetTime() * 2) + 1) / 2);
         m4 rot = quat_to_m4(quat_two);
 
         scale = m4_mul_m(scale, rot);
         scale = m4_mul_m(scale, trans);
 
+        TracyCZoneN(cam_transforms, "cam transforms", true);
+        v3 x_offset = v3_ux;
+        v3 z_offset = v3_uz;
+
+        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_D))
+            cam_pos = v3_add(cam_pos, v3_mul(x_offset, elapsed_time * 5));
+        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_A))
+            cam_pos = v3_sub(cam_pos, v3_mul(x_offset, elapsed_time * 5));
+        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_W))
+            cam_pos = v3_sub(cam_pos, v3_mul(z_offset, elapsed_time * 5));
+        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_S))
+            cam_pos = v3_add(cam_pos, v3_mul(z_offset, elapsed_time * 5));
+        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_SPACE))
+            cam_pos.y += elapsed_time * 3;
+        if (GLFW_PRESS == glfwGetKey(window, GLFW_KEY_LEFT_SHIFT))
+            cam_pos.y -= elapsed_time * 3;
+
+        m4 view = m4_look_at(cam_pos, v3_add(cam_pos, v3_uz), v3_uy);
+
+        TracyCZoneEnd(cam_transforms);
+        TracyCZoneEnd(transforms);
+
         glClearColor(0.6, 0.6, 0.6, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        TracyCZoneN(shader, "shader stuff", true);
         shdr_bind(&s);
         shdr_m4f(&s, "world", &scale);
         shdr_m4f(&s, "projection", &perspective);
         shdr_m4f(&s, "view", &view);
         f32 time = glfwGetTime();
         shdr_1f(&s, "time", &time);
+        TracyCZoneEnd(shader);
 
         vao_bind(&v);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

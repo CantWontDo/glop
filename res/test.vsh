@@ -5,6 +5,7 @@ layout(location = 1) in vec3 col;
 uniform mat4x4 world;
 uniform mat4x4 projection;
 uniform mat4x4 view;
+uniform float time;
 
 out vec3 _col;
 out vec3 _pos;

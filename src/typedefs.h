@@ -10,6 +10,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <tracy/TracyC.h>
+
 #include "err.h"
 
 typedef uint8_t u8;
@@ -48,13 +50,13 @@ typedef union iv2
     int v[2];
 } iv2;
 
-static const v2 v2_uy = {1, 0};
-static const v2 v2_ux = {0, 1};
+static const v2 v2_ux = {1, 0};
+static const v2 v2_uy = {0, 1};
 static const v2 v2_zero = {0, 0};
 static const v2 v2_one = {1, 1};
 
-static const iv2 iv2_uy = {1, 0};
-static const iv2 iv2_ux = {0, 1};
+static const iv2 iv2_ux = {1, 0};
+static const iv2 iv2_uy = {0, 1};
 static const iv2 iv2_zero = {0, 0};
 static const iv2 iv2_one = {1, 1};
 
@@ -149,8 +151,8 @@ typedef union v3
     float v[3];
 } v3;
 
-static const v3 v3_uy = {1, 0, 0};
-static const v3 v3_ux = {0, 1, 0};
+static const v3 v3_ux = {1, 0, 0};
+static const v3 v3_uy = {0, 1, 0};
 static const v3 v3_uz = {0, 0, 1};
 static const v3 v3_zero = {0, 0, 0};
 static const v3 v3_one = {1, 1, 1};
@@ -231,8 +233,8 @@ typedef union v4
 typedef v4 quat;
 static const quat quat_ident = {.w_q = 1, .v_q = v3_zero};
 
-static const v4 v4_uy = {1, 0, 0, 0};
-static const v4 v4_ux = {0, 1, 0, 0};
+static const v4 v4_ux = {1, 0, 0, 0};
+static const v4 v4_uy = {0, 1, 0, 0};
 static const v4 v4_uz = {0, 0, 1, 0};
 static const v4 v4_uw = {0, 0, 0, 1};
 static const v4 v4_zero = {0, 0, 0, 0};
@@ -494,6 +496,7 @@ inline static m4 m4_transpose(m4 m)
 
 inline static m4 m4_mul_m(m4 m, m4 m2)
 {
+    TracyCZone(matrix_mul, true);
     m4 out;
     m2 = m4_transpose(m2);
 
@@ -502,15 +505,18 @@ inline static m4 m4_mul_m(m4 m, m4 m2)
         for (int j = 0; j < 4; j++)
             out.m_g[i][j] = v4_dot(m.r[i], m2.r[j]);
     }
+    TracyCZoneEnd(matrix_mul);
     return out;
 }
 
 inline static m4 m4_scale(float x, float y, float z)
 {
+    TracyCZone(scale, true);
     m4 out = m4_ident;
     out.r[0].x = x;
     out.r[1].y = y;
     out.r[2].z = z;
+    TracyCZoneEnd(scale);
     return out;
 }
 
@@ -526,8 +532,10 @@ inline static m4 m4_scale_v(v3 a)
 
 inline static m4 m4_translate(float x, float y, float z)
 {
+    TracyCZone(translate, true);
     m4 out = m4_ident;
     out.r[3] = (v4){x, y, z, 1};
+    TracyCZoneEnd(translate);
     return out;
 }
 
@@ -588,6 +596,7 @@ inline static m4 m4_translate_v(v3 v)
 
 inline static m4 m4_perspective(float fov_x, float physical_aspect_ratio, float near, float far)
 {
+    TracyCZone(perspective, true);
     float zoom_x = 1 / tanf(fov_x / 2);
     float zoom_y = zoom_x * physical_aspect_ratio;
 
@@ -597,11 +606,12 @@ inline static m4 m4_perspective(float fov_x, float physical_aspect_ratio, float 
     out._33 = -((far + near) / (far - near));
     out._43 = 2 * near * far / (far - near);
     out._34 = -1;
-
+    TracyCZoneEnd(perspective);
     return out;
 }
 inline static m4 m4_look_at(v3 cam_pos, v3 target, v3 up_fake)
 {
+    TracyCZone(look, true);
     v3 forward = v3_norm(v3_sub(target, cam_pos));
     v3 right = v3_cross(up_fake, forward);
     v3 up = v3_cross(forward, right);
@@ -621,6 +631,7 @@ inline static m4 m4_look_at(v3 cam_pos, v3 target, v3 up_fake)
     out._33 = -forward.z;
 
     out.r[3] = (v4){-cam_pos.x, -cam_pos.y, -cam_pos.z, 1.0f};
+    TracyCZoneEnd(look);
     return out;
 }
 
@@ -780,6 +791,7 @@ inline static quat quat_from_euler(float pitch, float heading, float bank)
 
 inline static quat quat_slerp(quat q1, quat q2, float t)
 {
+    TracyCZone(slerp, true);
     quat out;
 
     float cos_omega = v4_dot(q1, q2);
@@ -810,11 +822,13 @@ inline static quat quat_slerp(quat q1, quat q2, float t)
     }
 
     out = v4_add(v4_mul(q1, k0), v4_mul(q2, k1));
+    TracyCZoneEnd(slerp);
     return out;
 }
 
 inline static m4 quat_to_m4(quat q)
 {
+    TracyCZone(quat, true);
     m4 out = m4_ident;
 
     float w = q.w_q;
@@ -833,12 +847,13 @@ inline static m4 quat_to_m4(quat q)
     out._31 = 2*x*z + 2*w*y;
     out._32 = 2*y*z - 2*w*x;
     out._33 = 1 - 2*x*x - 2*y*y;
-
+    TracyCZoneEnd(quat);
     return out;
 }
 
 static char *read_txt_file(char *file_name)
 {
+    TracyCZone(read_txt, true);
     FILE *file = fopen(file_name, "r");
     if (!file)
     {
@@ -855,6 +870,7 @@ static char *read_txt_file(char *file_name)
     int read_size = fread(buffer, sizeof(char), buffer_size, file);
     buffer = (char *)realloc(buffer, read_size + 1);
     fclose(file);
+    TracyCZoneEnd(read_txt);
     return buffer;
 }
 

@@ -10,6 +10,7 @@
 
 static u32 hash(void *data)
 {
+    TracyCZone(hash, true);
     u32 hash_t = 5381;
     char c;
     u8 *data_ = data;
@@ -22,6 +23,7 @@ static u32 hash(void *data)
     hash_t ^= hash_t >> 16;
     hash_t *= 0x3243f6a9U;
     hash_t ^= hash_t >> 16;
+    TracyCZoneEnd(hash);
     return hash_t;
 }
 
