@@ -27,7 +27,7 @@ typedef int64_t i64;
 typedef float_t f32;
 typedef double_t f64;
 
-#define PI 3.1415926
+#define PI 3.1415926f
 #define MIN(x, y) ((x) < (y) ? (x) : (y))
 #define MAX(x, y) ((x) > (y) ? (x) : (y))
 #define CLAMP(x, upper, lower) (MIN((upper), MAX((x), (lower)))
@@ -612,22 +612,35 @@ inline static m4 m4_perspective(float fov_x, float physical_aspect_ratio, float 
 inline static m4 m4_look_at(v3 cam_pos, v3 target, v3 up_fake)
 {
     TracyCZone(look, true);
+
     v3 forward = v3_norm(v3_sub(target, cam_pos));
-    v3 right = v3_cross(up_fake, forward);
-    v3 up = v3_cross(forward, right);
+    v3 right = v3_norm(v3_cross(up_fake, forward));
+    v3 up = v3_norm(v3_cross(forward, right));
 
     m4 out = m4_ident;
 
+    // out._11 = right.x;
+    // out._12 = up.x;
+    // out._13 = -forward.x;
+    //
+    // out._21 = right.y;
+    // out._22 = up.y;
+    // out._23 = -forward.y;
+    //
+    // out._31 = right.z;
+    // out._32 = up.z;
+    // out._33 = -forward.z;
+
     out._11 = right.x;
-    out._12 = up.x;
-    out._13 = -forward.x;
+    out._12 = right.y;
+    out._13 = right.z;
 
-    out._21 = right.y;
+    out._21 = up.x;
     out._22 = up.y;
-    out._23 = -forward.y;
+    out._23 = up.z;
 
-    out._31 = right.z;
-    out._32 = up.z;
+    out._31 = -forward.x;
+    out._32 = -forward.y;
     out._33 = -forward.z;
 
     out.r[3] = (v4){-cam_pos.x, -cam_pos.y, -cam_pos.z, 1.0f};
@@ -760,7 +773,6 @@ inline static quat quat_mul(quat q1, quat q2)
    out.w_q = q1.w_q*q2.w_q - v3_dot(q1.v_q, q2.v_q);
    out.v_q = v3_add(v3_add(v3_mul(q2.v_q, q1.w_q), v3_mul(q1.v_q, q2.w_q)),
         v3_cross(q1.v_q, q2.v_q));
-
    return out;
 }
 
@@ -847,7 +859,28 @@ inline static m4 quat_to_m4(quat q)
     out._31 = 2*x*z + 2*w*y;
     out._32 = 2*y*z - 2*w*x;
     out._33 = 1 - 2*x*x - 2*y*y;
+
+    out._41 = out._42 = out._43 = 0;
+    out._44 = 1;
     TracyCZoneEnd(quat);
+    return out;
+}
+
+inline static m3 m4_extract_rot(m4 m)
+{
+    m3 out = m3_ident;
+    out._11 = m._11;
+    out._12 = m._12;
+    out._13 = m._13;
+
+    out._21 = m._21;
+    out._22 = m._22;
+    out._23 = m._23;
+
+    out._31 = m._31;
+    out._32 = m._32;
+    out._33 = m._33;
+
     return out;
 }
 

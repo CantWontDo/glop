@@ -1,4 +1,4 @@
-Began logging at Wed Dec 11 13:07:42 2024
+Began logging at Mon Dec 16 12:40:08 2024
 
 starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
 pixel size: 1.000665
@@ -10,797 +10,1701 @@ zoom y: 1.642117
 near plane: 0.100000
 far plane: 100.000000
 plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-failed to compile shader at res/test.vsh:
-ERROR: 0:15: 'pos' : syntax error syntax error
-
-
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
-starting GLFW 3.4.0 Win32 WGL Null EGL OSMesa MinGW-w64
-pixel size: 1.000665
-physical aspect ratio: 1.642117
-fov_x: 1.570796
-fov_y: 1.093978
-zoom x: 1.000000
-zoom y: 1.642117
-near plane: 0.100000
-far plane: 100.000000
-plane distance: 99.900002
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: 0.000000
+cam pitch: 0.000000
+cam heading: -3.968375
+cam pitch: 0.000000
+cam heading: -8.313675
+cam pitch: 0.000000
+cam heading: -12.290025
+cam pitch: 0.000000
+cam heading: -16.394125
+cam pitch: 0.000000
+cam heading: -20.573650
+cam pitch: 0.000000
+cam heading: -24.621025
+cam pitch: 0.000000
+cam heading: -29.257050
+cam pitch: 0.000000
+cam heading: -33.076126
+cam pitch: 0.000000
+cam heading: -37.261875
+cam pitch: 0.000000
+cam heading: -41.470798
+cam pitch: 0.000000
+cam heading: -45.803398
+cam pitch: 0.000000
+cam heading: -51.307499
+cam pitch: 0.000000
+cam heading: -54.083847
+cam pitch: 0.000000
+cam heading: -58.060574
+cam pitch: 0.000000
+cam heading: -58.060574
+cam pitch: 0.000000
+cam heading: -58.060574
+cam pitch: 3.898450
+cam heading: -58.060574
+cam pitch: 8.256000
+cam heading: -58.060574
+cam pitch: 12.862149
+cam heading: -58.060574
+cam pitch: 16.643074
+cam heading: -58.060574
+cam pitch: 20.608049
+cam heading: -58.060574
+cam pitch: 25.036575
+cam heading: -58.060574
+cam pitch: 28.968250
+cam heading: -58.060574
+cam pitch: 33.211052
+cam heading: -58.060574
+cam pitch: 37.490578
+cam heading: -58.060574
+cam pitch: 41.456429
+cam heading: -58.060574
+cam pitch: 45.639404
+cam heading: -58.060574
+cam pitch: 50.217628
+cam heading: -58.060574
+cam pitch: 54.017853
+cam heading: -58.060574
+cam pitch: 58.164753
+cam heading: -58.060574
+cam pitch: 62.316326
+cam heading: -58.060574
+cam pitch: 66.470375
+cam heading: -58.060574
+cam pitch: 70.619751
+cam heading: -58.060574
+cam pitch: 74.790100
+cam heading: -58.060574
+cam pitch: 78.925278
+cam heading: -58.060574
+cam pitch: 83.276901
+cam heading: -58.060574
+cam pitch: 87.289703
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 90.000000
+cam heading: -58.060574
+cam pitch: 86.276802
+cam heading: -58.060574
+cam pitch: 82.136780
+cam heading: -58.060574
+cam pitch: 77.794708
+cam heading: -58.060574
+cam pitch: 73.541908
+cam heading: -58.060574
+cam pitch: 69.587433
+cam heading: -58.060574
+cam pitch: 65.232361
+cam heading: -58.060574
+cam pitch: 60.937534
+cam heading: -58.060574
+cam pitch: 56.835258
+cam heading: -58.060574
+cam pitch: 52.877033
+cam heading: -58.060574
+cam pitch: 48.609257
+cam heading: -58.060574
+cam pitch: 44.381283
+cam heading: -58.060574
+cam pitch: 40.389309
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 36.250435
+cam heading: -58.060574
+cam pitch: 32.256161
+cam heading: -58.060574
+cam pitch: 27.945086
+cam heading: -58.060574
+cam pitch: 23.731886
+cam heading: -58.060574
+cam pitch: 19.799911
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -58.060574
+cam pitch: 15.438811
+cam heading: -62.429749
+cam pitch: 15.438811
+cam heading: -66.336723
+cam pitch: 15.438811
+cam heading: -70.527100
+cam pitch: 15.438811
+cam heading: -75.076775
+cam pitch: 15.438811
+cam heading: -79.341576
+cam pitch: 15.438811
+cam heading: -83.266525
+cam pitch: 15.438811
+cam heading: -87.324852
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -91.452354
+cam pitch: 15.438811
+cam heading: -86.614151
+cam pitch: 15.438811
+cam heading: -83.148399
+cam pitch: 15.438811
+cam heading: -79.211700
+cam pitch: 15.438811
+cam heading: -75.023697
+cam pitch: 15.438811
+cam heading: -71.035324
+cam pitch: 15.438811
+cam heading: -66.911552
+cam pitch: 15.438811
+cam heading: -62.676052
+cam pitch: 15.438811
+cam heading: -58.393951
+cam pitch: 15.438811
+cam heading: -54.058800
+cam pitch: 15.438811
+cam heading: -50.227749
+cam pitch: 15.438811
+cam heading: -45.873947
+cam pitch: 15.438811
+cam heading: -41.552197
+cam pitch: 15.438811
+cam heading: -37.480923
+cam pitch: 15.438811
+cam heading: -33.138672
+cam pitch: 15.438811
+cam heading: -29.303196
+cam pitch: 15.438811
+cam heading: -25.057720
+cam pitch: 15.438811
+cam heading: -20.780870
+cam pitch: 15.438811
+cam heading: -16.782946
+cam pitch: 15.438811
+cam heading: -12.361196
+cam pitch: 15.438811
+cam heading: -8.074296
+cam pitch: 15.438811
+cam heading: -3.985371
+cam pitch: 15.438811
+cam heading: -0.133196
+cam pitch: 15.438811
+cam heading: 4.287429
+cam pitch: 15.438811
+cam heading: 8.393554
+cam pitch: 15.438811
+cam heading: 12.564754
+cam pitch: 15.438811
+cam heading: 16.850954
+cam pitch: 15.438811
+cam heading: 21.208155
+cam pitch: 15.438811
+cam heading: 24.783655
+cam pitch: 15.438811
+cam heading: 29.042656
+cam pitch: 15.438811
+cam heading: 33.433681
+cam pitch: 15.438811
+cam heading: 37.400681
+cam pitch: 15.438811
+cam heading: 41.574631
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 45.952057
+cam pitch: 15.438811
+cam heading: 42.052582
+cam pitch: 15.438811
+cam heading: 37.221981
+cam pitch: 15.438811
+cam heading: 33.358681
+cam pitch: 15.438811
+cam heading: 29.103231
+cam pitch: 15.438811
+cam heading: 25.137882
+cam pitch: 15.438811
+cam heading: 21.095358
+cam pitch: 15.438811
+cam heading: 16.971409
+cam pitch: 15.438811
+cam heading: 12.384784
+cam pitch: 15.438811
+cam heading: 8.399734
+cam pitch: 15.438811
+cam heading: 4.381809
+cam pitch: 15.438811
+cam heading: 0.145584
+cam pitch: 15.438811
+cam heading: -4.122191
+cam pitch: 15.438811
+cam heading: -7.891391
+cam pitch: 15.438811
+cam heading: -12.365016
+cam pitch: 15.438811
+cam heading: -16.588667
+cam pitch: 15.438811
+cam heading: -20.776392
+cam pitch: 15.438811
+cam heading: -24.959642
+cam pitch: 15.438811
+cam heading: -29.285368
+cam pitch: 15.438811
+cam heading: -33.096893
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -37.163719
+cam pitch: 15.438811
+cam heading: -33.020370
+cam pitch: 15.438811
+cam heading: -28.929295
+cam pitch: 15.438811
+cam heading: -24.706869
+cam pitch: 15.438811
+cam heading: -20.599720
+cam pitch: 15.438811
+cam heading: -16.417845
+cam pitch: 15.438811
+cam heading: -12.030994
+cam pitch: 15.438811
+cam heading: -7.808944
+cam pitch: 15.438811
+cam heading: -3.475619
+cam pitch: 15.438811
+cam heading: 0.391531
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
+cam pitch: 15.438811
+cam heading: 4.641831
